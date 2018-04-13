@@ -1,0 +1,99 @@
+[{
+  "name": "Kunstmann Kneipe",
+  "address": "Constitución 57, Providencia, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.6345789, -33.433790]
+  }
+}, {
+  "name": "Bar Bulnes",
+  "address": "Av. Italia 1514, Santiago, Ñuñoa, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.6243473, -33.4484967]
+  }
+}, {
+  "name": "Cerveza Quimera",
+  "address": "1576, Alcérreca, Quinta Normal, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.6910764, -33.4322832]
+  }
+}, {
+  "name": "Kleine Kneipe",
+  "address": "21, Román Díaz, Santiago, Providencia, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.6227715, -33.4307407]
+  }
+}, {
+  "name": "Tauss Bräu",
+  "address": "Olmué, Región de Valparaíso",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-71.22313, -32.9886899]
+  }
+}, {
+  "name": "Cervecería Kross",
+  "address": "Camino El Toro, Curacavi, Curacaví, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-71.1551083, -33.3633269]
+  }
+}, {
+  "name": "Depósito Cervecero de Zapata",
+  "address": "Av. Manuel Antonio Matta 549, Santiago, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.640371, -33.457478]
+  }
+}, {
+  "name": "Cervecería Brugge",
+  "address": "Camino El Toro 13593, Curacaví, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-71.144004, -33.3462753]
+  }
+}, {
+  "name": "Cervecería Spoh",
+  "address": "Roberto Espinoza 1456, Santiago, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.6516556, -33.465379]
+  }
+}, {
+  "name": "LOOM",
+  "address": "Bellavista 0360, Providencia, Santiago, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.630117, -33.432604]
+  }
+}, {
+  "name": "El Growler",
+  "address": "99, Saelzer 1, Valdivia, Región de los Ríos",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.2539797, -39.8098606]
+  }
+}, {
+  "name": "Beer Makers Store",
+  "address": "Ramón Carrasco 52, Concepción, Región del Bío Bío",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.0607424, -36.7907345]
+  }
+}, {
+  "name": "Bar Bundor",
+  "address": "Los Alerces 31, Valdivia, Región de los Ríos",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-73.2549275, -39.8097689]
+  }
+}, {
+  "name": "KrossBar Bellavista",
+  "address": "Dardignac 127, Providencia, Región Metropolitana",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-70.634526, -33.4331851]
+  }
+}]

@@ -1,7 +1,8 @@
 'use strict'
 
 const app = require('./app')
+const { port } = require('./config')
 
-app.listen(3000, () => {
-  console.log('Listen in localhost:3000') // eslint-disable-line
+app.listen(port, () => {
+  console.log(`Listen in port ${port}`) // eslint-disable-line
 })

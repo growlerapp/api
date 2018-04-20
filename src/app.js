@@ -17,16 +17,13 @@ mongoose.Promise = Promise
 
 const app = express()
 
-Raven.config(
-  process.env.SENTRY_TOKEN,
-  {
-    release: pkg.version,
-    environment: process.env.NODE_ENV || 'development',
-    server_name: process.env.HOSTNAME || os.hostname(),
-    captureUnhandledRejections: true,
-    autoBreadcrumbs: true
-  }
-).install()
+Raven.config(process.env.SENTRY_TOKEN, {
+  release: pkg.version,
+  environment: process.env.NODE_ENV || 'development',
+  server_name: process.env.HOSTNAME || os.hostname(),
+  captureUnhandledRejections: true,
+  autoBreadcrumbs: true
+}).install()
 
 app.use(Raven.requestHandler())
 app.use(morgan('combined'))

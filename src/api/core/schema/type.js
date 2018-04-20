@@ -1,6 +1,10 @@
 'use strict'
 
-const { GraphQLObjectType, GraphQLString, GraphQLEnumType, GraphQLNonNull, GraphQLScalarType } = require('graphql')
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLScalarType
+} = require('graphql')
 
 const CoordinatesScalar = new GraphQLScalarType({
   name: 'GeoJSONCoordinates',

@@ -1,3 +1,9 @@
+### 1.1.0 (2018-04-20)
+
+##### New Features
+
+* **args:**  add filter data by address ([8d77c188](https://github.com/growlerapp/api/commit/8d77c1881063c82f31876a2674d0b8e419ccad08))
+
 ## 1.0.0 (2018-04-20)
 
 ##### Chores

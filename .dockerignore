@@ -1,0 +1,7 @@
+node_modules
+coverage
+test
+docker-compose.yml
+.*
+*.md
+*.log

@@ -25,7 +25,10 @@ exports.findByProximity = async (root, args) => {
     .select(fields)
     .exec()
   const destinations = docs.map(doc => {
-    return { lat: doc.geometry.coordinates[1], lng: doc.geometry.coordinates[0] }
+    return {
+      lat: doc.geometry.coordinates[1],
+      lng: doc.geometry.coordinates[0]
+    }
   })
   const options = {
     origins,

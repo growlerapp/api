@@ -37,7 +37,8 @@ exports.matrix = async options => {
       distanceOptions.transit_mode = options.transit_mode
     }
     if (options.transit_routing_preference) {
-      distanceOptions.transit_routing_preference = options.transit_routing_preference
+      distanceOptions.transit_routing_preference =
+        options.transit_routing_preference
     }
   }
   if (options.avoid) distanceOptions.avoid = options.avoid

@@ -1,7 +1,18 @@
 'use strict'
 
 const { GraphQLList, GraphQLString, GraphQLFloat } = require('graphql')
-const { GrowlerType, DistanceMatrixResults, TravelModes, Languages, Avoids, Units, TimeType, TrafficModels, TransitModes, TransitRoutingPreference } = require('../type')
+const {
+  GrowlerType,
+  DistanceMatrixResults,
+  TravelModes,
+  Languages,
+  Avoids,
+  Units,
+  TimeType,
+  TrafficModels,
+  TransitModes,
+  TransitRoutingPreference
+} = require('../type')
 const { findAll, findByProximity } = require('../resolvers')
 
 exports.findAll = {
@@ -26,7 +37,8 @@ exports.findByProximity = {
     longitude: { type: GraphQLFloat },
     mode: {
       type: TravelModes,
-      description: 'Especifica el medio de transporte que se debe usar para calcular la distancia.',
+      description:
+        'Especifica el medio de transporte que se debe usar para calcular la distancia.',
       defaultValue: 'driving'
     },
     language: {
@@ -40,7 +52,8 @@ exports.findByProximity = {
     },
     units: {
       type: Units,
-      description: 'Especifica el sistema de unidades que se usará para expresar la distancia como texto.',
+      description:
+        'Especifica el sistema de unidades que se usará para expresar la distancia como texto.',
       defaultValue: 'metric'
     },
     time_type: {
@@ -53,7 +66,8 @@ exports.findByProximity = {
     },
     traffic_model: {
       type: TrafficModels,
-      description: 'Especifica las suposiciones que deben aplicarse al calcular el tiempo con tráfico.',
+      description:
+        'Especifica las suposiciones que deben aplicarse al calcular el tiempo con tráfico.',
       defaultValue: 'best_guess'
     },
     transit_mode: {

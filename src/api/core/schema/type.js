@@ -48,19 +48,23 @@ const TopLevelStatusCodes = new GraphQLEnumType({
     },
     MAX_ELEMENTS_EXCEEDED: {
       value: 'MAX_ELEMENTS_EXCEEDED',
-      description: 'Indicates that the product of origins and destinations exceeds the per-query limit.'
+      description:
+        'Indicates that the product of origins and destinations exceeds the per-query limit.'
     },
     OVER_QUERY_LIMIT: {
       value: 'OVER_QUERY_LIMIT',
-      description: 'Indicates the service has received too many requests from your application within the allowed time period.'
+      description:
+        'Indicates the service has received too many requests from your application within the allowed time period.'
     },
     REQUEST_DENIED: {
       value: 'REQUEST_DENIED',
-      description: 'Indicates that the service denied use of the Distance Matrix service by your application.'
+      description:
+        'Indicates that the service denied use of the Distance Matrix service by your application.'
     },
     UNKNOWN_ERROR: {
       value: 'UNKNOWN_ERROR',
-      description: 'Indicates a Distance Matrix request could not be processed due to a server error. The request may succeed if you try again.'
+      description:
+        'Indicates a Distance Matrix request could not be processed due to a server error. The request may succeed if you try again.'
     }
   }
 })
@@ -74,15 +78,18 @@ const ElementLevelStatusCodes = new GraphQLEnumType({
     },
     NOT_FOUND: {
       value: 'NOT_FOUND',
-      description: 'Indicates that the origin and/or destination of this pairing could not be geocoded.'
+      description:
+        'Indicates that the origin and/or destination of this pairing could not be geocoded.'
     },
     ZERO_RESULTS: {
       value: 'ZERO_RESULTS',
-      description: 'Indicates no route could be found between the origin and destination.'
+      description:
+        'Indicates no route could be found between the origin and destination.'
     },
     MAX_ROUTE_LENGTH_EXCEEDED: {
       value: 'MAX_ROUTE_LENGTH_EXCEEDED',
-      description: 'Indicates the requested route is too long and cannot be processed.'
+      description:
+        'Indicates the requested route is too long and cannot be processed.'
     }
   }
 })
@@ -141,7 +148,8 @@ exports.DistanceMatrixResults = new GraphQLObjectType({
 
 exports.TravelModes = new GraphQLEnumType({
   name: 'TravelModes',
-  description: 'Specifies the mode of transport to use when calculating distance.',
+  description:
+    'Specifies the mode of transport to use when calculating distance.',
   values: {
     driving: {
       value: 'driving',
@@ -149,15 +157,18 @@ exports.TravelModes = new GraphQLEnumType({
     },
     walking: {
       value: 'walking',
-      description: 'Requests distance calculation for walking via pedestrian paths & sidewalks (where available).'
+      description:
+        'Requests distance calculation for walking via pedestrian paths & sidewalks (where available).'
     },
     bicycling: {
       value: 'bicycling',
-      description: 'Requests distance calculation for bicycling via bicycle paths & preferred streets (where available).'
+      description:
+        'Requests distance calculation for bicycling via bicycle paths & preferred streets (where available).'
     },
     transit: {
       value: 'transit',
-      description: 'Requests distance calculation via public transit routes (where available).'
+      description:
+        'Requests distance calculation via public transit routes (where available).'
     }
   }
 })
@@ -234,7 +245,8 @@ exports.Avoids = new GraphQLEnumType({
 
 exports.Units = new GraphQLEnumType({
   name: 'Units',
-  description: 'Specifies the unit system to use when expressing distance as text.',
+  description:
+    'Specifies the unit system to use when expressing distance as text.',
   values: {
     metric: { value: 'metric' },
     imperial: { value: 'imperial' }
@@ -247,30 +259,36 @@ exports.TimeType = new GraphQLEnumType({
   values: {
     arrival_time: {
       value: 'arrival_time',
-      description: 'Specifies the desired time of arrival for transit requests, in seconds since midnight, January 1, 1970 UTC.'
+      description:
+        'Specifies the desired time of arrival for transit requests, in seconds since midnight, January 1, 1970 UTC.'
     },
     departure_time: {
       value: 'departure_time',
-      description: 'The desired time of departure. You can specify the time as an integer in seconds since midnight, January 1, 1970 UTC. Alternatively, you can specify a value of now, which sets the departure time to the current time (correct to the nearest second).'
+      description:
+        'The desired time of departure. You can specify the time as an integer in seconds since midnight, January 1, 1970 UTC. Alternatively, you can specify a value of now, which sets the departure time to the current time (correct to the nearest second).'
     }
   }
 })
 
 exports.TrafficModels = new GraphQLEnumType({
   name: 'TrafficModels',
-  description: 'Specifies the assumptions to use when calculating time in traffic.',
+  description:
+    'Specifies the assumptions to use when calculating time in traffic.',
   values: {
     best_guess: {
       value: 'best_guess',
-      description: 'Indicates that the returned duration_in_traffic should be the best estimate of travel time given what is known about both historical traffic conditions and live traffic.'
+      description:
+        'Indicates that the returned duration_in_traffic should be the best estimate of travel time given what is known about both historical traffic conditions and live traffic.'
     },
     pessimistic: {
       value: 'pessimistic',
-      description: 'Indicates that the returned duration_in_traffic should be longer than the actual travel time on most days, though occasional days with particularly bad traffic conditions may exceed this value.'
+      description:
+        'Indicates that the returned duration_in_traffic should be longer than the actual travel time on most days, though occasional days with particularly bad traffic conditions may exceed this value.'
     },
     optimistic: {
       value: 'optimistic',
-      description: 'Indicates that the returned duration_in_traffic should be shorter than the actual travel time on most days, though occasional days with particularly good traffic conditions may be faster than this value.'
+      description:
+        'Indicates that the returned duration_in_traffic should be shorter than the actual travel time on most days, though occasional days with particularly good traffic conditions may be faster than this value.'
     }
   }
 })
@@ -281,23 +299,28 @@ exports.TransitModes = new GraphQLEnumType({
   values: {
     bus: {
       value: 'bus',
-      description: 'Indicates that the calculated route should prefer travel by bus.'
+      description:
+        'Indicates that the calculated route should prefer travel by bus.'
     },
     subway: {
       value: 'subway',
-      description: 'Indicates that the calculated route should prefer travel by subway.'
+      description:
+        'Indicates that the calculated route should prefer travel by subway.'
     },
     train: {
       value: 'train',
-      description: 'Indicates that the calculated route should prefer travel by train.'
+      description:
+        'Indicates that the calculated route should prefer travel by train.'
     },
     tram: {
       value: 'tram',
-      description: 'Indicates that the calculated route should prefer travel by tram and light rail.'
+      description:
+        'Indicates that the calculated route should prefer travel by tram and light rail.'
     },
     rail: {
       value: 'rail',
-      description: 'Indicates that the calculated route should prefer travel by train, tram, light rail, and subway. This is equivalent to transit_mode=train|tram|subway.'
+      description:
+        'Indicates that the calculated route should prefer travel by train, tram, light rail, and subway. This is equivalent to transit_mode=train|tram|subway.'
     }
   }
 })
@@ -308,11 +331,13 @@ exports.TransitRoutingPreference = new GraphQLEnumType({
   values: {
     less_walking: {
       value: 'less_walking',
-      description: 'Indicates that the calculated route should prefer limited amounts of walking.'
+      description:
+        'Indicates that the calculated route should prefer limited amounts of walking.'
     },
     fewer_transfers: {
       value: 'fewer_transfers',
-      description: 'Indicates that the calculated route should prefer a limited number of transfers.'
+      description:
+        'Indicates that the calculated route should prefer a limited number of transfers.'
     }
   }
 })

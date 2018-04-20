@@ -1,3 +1,19 @@
+### 1.2.0 (2018-04-20)
+
+##### Documentation Changes
+
+* **readme:**  add badges ([b08fb8f8](https://github.com/growlerapp/api/commit/b08fb8f89483003eb8b4d6ccbfdfbebc04bd27b6))
+
+##### New Features
+
+* **query:**  add findByProximity ([ae3374e4](https://github.com/growlerapp/api/commit/ae3374e46fc4c715e8454286ace3098ef9fbbde5))
+* **types:**  add distance matrix types ([299293e9](https://github.com/growlerapp/api/commit/299293e90d28403accb64a36aae92a5a54b891bb))
+* **utils:**  complete matrix util ([8870bc10](https://github.com/growlerapp/api/commit/8870bc102847ad3992ba0bde7f3ba974ad572bd7))
+
+##### Code Style Changes
+
+* **js:**  fix format source ([0503b66c](https://github.com/growlerapp/api/commit/0503b66c608de4e3affec48a124297a141d20d48))
+
 ### 1.1.0 (2018-04-20)
 
 ##### New Features

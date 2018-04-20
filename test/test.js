@@ -60,6 +60,58 @@ describe('api', function () {
       expect(response.body.errors).to.be.a('undefined')
     })
 
+    it('search by name', async () => {
+      const query = `
+      query {
+        findAll(name: "cerveceria") {
+          name, address, geometry {
+            type, coordinates
+          }
+        }
+      }`
+      const response = await request(app)
+        .post('/graphql')
+        .send({ query })
+        .expect(200)
+      expect(response.body.data.findAll).to.be.a('array')
+      response.body.data.findAll.forEach(doc => {
+        expect(doc.name).to.be.a('string')
+        expect(doc.address).to.be.a('string')
+        expect(doc.geometry.type).to.be.a('string')
+        expect(doc.geometry.coordinates).to.be.a('array')
+        doc.geometry.coordinates.forEach(point => {
+          expect(point).to.be.a('number')
+        })
+      })
+      expect(response.body.errors).to.be.a('undefined')
+    })
+
+    it('search by address', async () => {
+      const query = `
+      query {
+        findAll(address: "Metropolitana") {
+          name, address, geometry {
+            type, coordinates
+          }
+        }
+      }`
+      const response = await request(app)
+        .post('/graphql')
+        .send({ query })
+        .expect(200)
+      expect(response.body.data.findAll).to.be.a('array')
+      response.body.data.findAll.forEach(doc => {
+        expect(doc.name).to.be.a('string')
+        expect(doc.address).to.be.a('string')
+        expect(doc.geometry.type).to.be.a('string')
+        expect(doc.geometry.coordinates).to.be.a('array')
+        doc.geometry.coordinates.forEach(point => {
+          expect(point).to.be.a('number')
+        })
+      })
+      expect(response.body.errors).to.be.a('undefined')
+    })
+
     it('bad request', async () => {
       const query = `
       query {

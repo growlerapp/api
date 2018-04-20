@@ -8,6 +8,9 @@ exports.findAll = async (root, args) => {
   if (args.name) {
     query.name = { $regex: `.*${args.name}.*`, $options: 'i' }
   }
+  if (args.address) {
+    query.address = { $regex: `.*${args.address}.*`, $options: 'i' }
+  }
   const docs = await Growler.find(query)
     .select(fields)
     .exec()

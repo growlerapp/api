@@ -7,7 +7,14 @@ const { findAll } = require('../resolvers')
 exports.findAll = {
   type: new GraphQLList(GrowlerType),
   args: {
-    name: { type: GraphQLString }
+    name: {
+      type: GraphQLString,
+      description: 'Búsqueda de growlers por nombre'
+    },
+    address: {
+      type: GraphQLString,
+      description: 'Búsqueda de growlers por dirección'
+    }
   },
   resolve: findAll
 }

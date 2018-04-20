@@ -21,23 +21,31 @@ exports.geocoding = async address => {
   }
 }
 
-exports.matrix = async () => {
-  const googleMapsClient = createClient({ key: config.google.apiKey, Promise })
-  // const origins = [{ lat: origin.lat, lng: origin.lng }]
-  const origins = [{ lat: -33.4666204, lng: -70.6269754 }]
-  const destinations = [
-    { lng: -70.6345789, lat: -33.43379 },
-    { lng: -70.6243473, lat: -33.4484967 }
-  ]
+exports.matrix = async options => {
+  const googleMapsClient = getClient()
+  const distanceOptions = {
+    origins: options.origins,
+    destinations: options.destinations,
+    mode: options.mode,
+    language: options.language,
+    units: options.units
+  }
+  if (distanceOptions.mode === 'driving') {
+    distanceOptions.traffic_model = options.traffic_model
+  } else if (distanceOptions.mode === 'transit') {
+    if (options.transit_mode) {
+      distanceOptions.transit_mode = options.transit_mode
+    }
+    if (options.transit_routing_preference) {
+      distanceOptions.transit_routing_preference = options.transit_routing_preference
+    }
+  }
+  if (options.avoid) distanceOptions.avoid = options.avoid
+  if (options.time_type && options.time_value) {
+    distanceOptions[options.time_type] = options.time_value
+  }
   const response = await googleMapsClient
-    .distanceMatrix({
-      origins,
-      destinations,
-      departure_time: 'now',
-      mode: 'driving',
-      traffic_model: 'best_guess',
-      language: 'es'
-    })
+    .distanceMatrix(distanceOptions)
     .asPromise()
   return response
 }

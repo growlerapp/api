@@ -4,11 +4,14 @@
   "description": "App for search your near growler",
   "main": "src",
   "scripts": {
+    "start": "node src",
+    "dev": "nodemon src",
+    "initdb": "node src/initdb",
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
     "precommit": "lint-staged",
     "pretest": "npm run lint -s && npm run format -s",
-    "test": "istanbul cover _mocha",
+    "test": "MONGODB_URI=mongodb://localhost/growler_test istanbul cover _mocha test -- --exit",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
@@ -18,19 +21,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/growlerapp/growlerapp.git"
+    "url": "https://github.com/growlerapp/api.git"
   },
   "keywords": [
-    "bip",
-    "transantiago",
-    "metro"
+    "growler",
+    "graphql"
   ],
   "author": "Leonardo Gatica <lgatica@protonmail.com> (https://about.me/lgatica)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/growlerapp/growlerapp/issues"
+    "url": "https://github.com/growlerapp/api/issues"
   },
-  "homepage": "https://github.com/growlerapp/growlerapp#readme",
+  "homepage": "https://github.com/growlerapp/api#readme",
   "dependencies": {
     "@google/maps": "0.4.6",
     "apollo-server-express": "1.3.4",
@@ -41,7 +43,7 @@
     "graphql": "0.13.2",
     "graphql-geojson": "1.0.0",
     "graphql-playground-middleware-express": "1.6.1",
-    "mongoose": "5.0.14",
+    "mongoose": "5.0.15",
     "morgan": "1.9.0",
     "raven": "2.5.0"
   },
@@ -55,9 +57,10 @@
     "eslint-plugin-standard": "3.0.1",
     "generate-changelog": "1.7.1",
     "husky": "0.14.3",
-    "istanbul": "0.4.5",
+    "istanbul": "1.0.0-alpha.2",
     "lint-staged": "7.0.4",
     "mocha": "5.1.0",
+    "nodemon": "1.17.3",
     "prettier-standard": "8.0.1",
     "supertest": "3.0.0"
   },

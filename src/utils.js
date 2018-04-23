@@ -50,3 +50,50 @@ exports.matrix = async options => {
     .asPromise()
   return response
 }
+
+const round = (value, exp) => {
+  if (typeof exp === 'undefined' || +exp === 0) return Math.round(value)
+
+  value = +value
+  exp = +exp
+
+  if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) return NaN
+
+  // Shift
+  value = value.toString().split('e')
+  value = Math.round(+(value[0] + 'e' + (value[1] ? +value[1] + exp : exp)))
+
+  // Shift back
+  value = value.toString().split('e')
+  return +(value[0] + 'e' + (value[1] ? +value[1] - exp : -exp))
+}
+
+const prettyKm = num => {
+  if (num < 1000) {
+    return `${round(num, 0)} m`
+  }
+  return `${round(num / 1000, 1)} km`
+}
+
+exports.parseMatrixResults = (results, docs) => {
+  return docs
+    .map((doc, idx) => {
+      const result = {
+        name: doc.name,
+        address: doc.address,
+        geometry: doc.geometry
+      }
+      const element = results.json.rows[0].elements[idx]
+      if (element.status === 'OK') {
+        result.distance = element.distance
+        result.duration = element.duration
+      } else {
+        result.distance = {
+          value: parseInt(doc.distance, 10),
+          text: prettyKm(parseInt(doc.distance, 10))
+        }
+      }
+      return result
+    })
+    .sort((a, b) => a.distance.value - b.distance.value)
+}

@@ -1,7 +1,9 @@
 node_modules
 coverage
 test
-docker-compose.yml
+docker-compose*
 .*
 *.md
 *.log
+.vscode
+Dockerfile

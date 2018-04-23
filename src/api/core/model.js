@@ -22,4 +22,15 @@ Model.pre('save', async doc => {
   }
 })
 
+Model.statics.findByProximity = async function (lat, lng) {
+  const results = await this.aggregate()
+    .near({
+      near: { type: 'Point', coordinates: [lng, lat] },
+      distanceField: 'distance',
+      spherical: true
+    })
+    .exec()
+  return results
+}
+
 module.exports = mongoose.model('Growler', Model)

@@ -17,21 +17,21 @@ const CoordinatesScalar = new GraphQLScalarType({
   parseLiteral: valueAST => valueAST.value
 })
 
+const GeoJSONPoint = new GraphQLObjectType({
+  name: 'GeoJSONPoint',
+  description: 'Object describing a single geographical point.',
+  fields: {
+    type: { type: GraphQLString },
+    coordinates: { type: CoordinatesScalar }
+  }
+})
+
 exports.GrowlerType = new GraphQLObjectType({
   name: 'Growler',
   fields: {
     name: { type: GraphQLString },
     address: { type: GraphQLString },
-    geometry: {
-      type: new GraphQLObjectType({
-        name: 'GeoJSONPoint',
-        description: 'Object describing a single geographical point.',
-        fields: {
-          type: { type: GraphQLString },
-          coordinates: { type: CoordinatesScalar }
-        }
-      })
-    }
+    geometry: { type: GeoJSONPoint }
   }
 })
 
@@ -143,6 +143,17 @@ exports.DistanceMatrixResults = new GraphQLObjectType({
       type: new GraphQLList(RowType)
     },
     status: { type: TopLevelStatusCodes }
+  }
+})
+
+exports.SimpleMatrix = new GraphQLObjectType({
+  name: 'SimpleMatrix',
+  fields: {
+    name: { type: GraphQLString },
+    address: { type: GraphQLString },
+    geometry: { type: GeoJSONPoint },
+    distance: { type: DistanceType },
+    duration: { type: DurationType }
   }
 })
 

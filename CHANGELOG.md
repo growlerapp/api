@@ -1,3 +1,25 @@
+## 2.0.0 (2018-04-23)
+
+##### Breaking Changes
+
+* **query:**  change type of findByProximity ([527eb0cc](https://github.com/growlerapp/api/commit/527eb0cc5dbfecc31a516eafab702958ab15893d))
+
+##### Chores
+
+* **codeclimate:**  add .codeclimate ([a700b440](https://github.com/growlerapp/api/commit/a700b440ba0cebd78f1ba785a4e7fd1c456bccec))
+
+##### Continuous Integration
+
+* **deploy:**  add build-args in docker build ([9701aef6](https://github.com/growlerapp/api/commit/9701aef6b879d39d75b35a28eac1f67430deada4))
+
+##### New Features
+
+* **utils:**  add parseMatrixResults ([2bca5635](https://github.com/growlerapp/api/commit/2bca5635c9d84ea745d1c010c0dfb23b380c380b))
+* **models:**
+  *  add findByProximity static method ([c01b8ea5](https://github.com/growlerapp/api/commit/c01b8ea5ad98f6f8dfa8f6e7dd6327d44de9ba64))
+  *  add index 2dsphere ([c57b7b91](https://github.com/growlerapp/api/commit/c57b7b91c570e9c3419a4e2b00e6afec5b422525))
+* **types:**  add SimpleMatrix type ([9c571fa0](https://github.com/growlerapp/api/commit/9c571fa0ebffc542d54d35879c6ea511a13e1daa))
+
 ### 1.2.0 (2018-04-20)
 
 ##### Documentation Changes

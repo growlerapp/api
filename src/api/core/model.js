@@ -12,6 +12,8 @@ const Model = new mongoose.Schema({
   }
 })
 
+Model.index({ geometry: '2dsphere' })
+
 Model.pre('save', async doc => {
   if (!doc.geometry && doc.address) {
     try {

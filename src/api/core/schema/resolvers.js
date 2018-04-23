@@ -1,7 +1,7 @@
 'use strict'
 
 const Growler = require('../model')
-const { matrix } = require('./../../../utils')
+const { matrix, parseMatrixResults } = require('./../../../utils')
 
 exports.findAll = async (root, args) => {
   const fields = { _id: -1, name: 1, address: 1, geometry: 1 }
@@ -20,10 +20,7 @@ exports.findAll = async (root, args) => {
 
 exports.findByProximity = async (root, args) => {
   const origins = [{ lat: args.latitude, lng: args.longitude }]
-  const fields = { _id: -1, name: 1, address: 1, geometry: 1 }
-  const docs = await Growler.find({})
-    .select(fields)
-    .exec()
+  const docs = await Growler.findByProximity(args.latitude, args.longitude)
   const destinations = docs.map(doc => {
     return {
       lat: doc.geometry.coordinates[1],
@@ -43,6 +40,7 @@ exports.findByProximity = async (root, args) => {
     transit_mode: args.transit_mode,
     transit_routing_preference: args.transit_routing_preference
   }
-  const results = await matrix(options)
-  return results.json
+  const matrixResults = await matrix(options)
+  const results = parseMatrixResults(matrixResults, docs)
+  return results
 }

@@ -3,7 +3,7 @@
 const { GraphQLList, GraphQLString, GraphQLFloat } = require('graphql')
 const {
   GrowlerType,
-  DistanceMatrixResults,
+  SimpleMatrix,
   TravelModes,
   Languages,
   Avoids,
@@ -31,7 +31,7 @@ exports.findAll = {
 }
 
 exports.findByProximity = {
-  type: DistanceMatrixResults,
+  type: new GraphQLList(SimpleMatrix),
   args: {
     latitude: { type: GraphQLFloat },
     longitude: { type: GraphQLFloat },

@@ -1,6 +1,6 @@
 {
   "name": "growlerapp",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "App for search your near growler",
   "main": "src",
   "scripts": {

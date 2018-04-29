@@ -1,3 +1,14 @@
+#### 2.0.1 (2018-04-29)
+
+##### Chores
+
+* **package:**  update dependencies ([d961167c](https://github.com/growlerapp/api/commit/d961167c77aecea8e67bc823d41814cdd71f0a40))
+* **docker:**  update docker files ([9030e145](https://github.com/growlerapp/api/commit/9030e145cfbb6f72635dd92bfbc2f10c47929a2a))
+
+##### Bug Fixes
+
+* **query:**  add GraphQLNonNull to args required ([fc530652](https://github.com/growlerapp/api/commit/fc5306522259ee6c275a5412f534dc2c0cfbb5fc))
+
 ## 2.0.0 (2018-04-23)
 
 ##### Breaking Changes

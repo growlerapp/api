@@ -1,6 +1,11 @@
 'use strict'
 
-const { GraphQLList, GraphQLString, GraphQLFloat } = require('graphql')
+const {
+  GraphQLList,
+  GraphQLString,
+  GraphQLFloat,
+  GraphQLNonNull
+} = require('graphql')
 const {
   GrowlerType,
   SimpleMatrix,
@@ -33,8 +38,8 @@ exports.findAll = {
 exports.findByProximity = {
   type: new GraphQLList(SimpleMatrix),
   args: {
-    latitude: { type: GraphQLFloat },
-    longitude: { type: GraphQLFloat },
+    latitude: { type: new GraphQLNonNull(GraphQLFloat) },
+    longitude: { type: new GraphQLNonNull(GraphQLFloat) },
     mode: {
       type: TravelModes,
       description:
@@ -57,11 +62,11 @@ exports.findByProximity = {
       defaultValue: 'metric'
     },
     time_type: {
-      type: TimeType,
+      type: new GraphQLNonNull(TimeType),
       description: 'Especifica el tipo de hora deseada.'
     },
     time_value: {
-      type: GraphQLString,
+      type: new GraphQLNonNull(GraphQLString),
       description: 'Especifica el valor de hora deseada.'
     },
     traffic_model: {

@@ -6,12 +6,14 @@
   "scripts": {
     "start": "node src",
     "dev": "nodemon src",
+    "dev:docker": "nodemon --inspect=0.0.0.0:9229 src",
     "initdb": "node src/initdb",
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
     "precommit": "lint-staged",
     "pretest": "npm run lint -s && npm run format -s",
     "test": "MONGODB_URI=mongodb://localhost/growler_test istanbul cover _mocha test -- --exit",
+    "test:docker": "MONGODB_URI=mongodb://mongo/growler_test istanbul cover _mocha test -- --debug-brk=0.0.0.0:9229 -t 10000 --exit",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"

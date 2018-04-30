@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const Raven = require('raven')
+const helmet = require('helmet')
 const config = require('./config')
 const pkg = require('../package.json')
 
@@ -24,6 +25,10 @@ Raven.config(process.env.SENTRY_TOKEN, {
   captureUnhandledRejections: true,
   autoBreadcrumbs: true
 }).install()
+
+// Mejorar seguridad
+app.use(helmet())
+app.disable('x-powered-by')
 
 app.use(Raven.requestHandler())
 app.use(morgan('combined'))

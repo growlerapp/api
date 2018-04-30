@@ -49,3 +49,12 @@ exports.findByProximity = async (root, args) => {
   const results = parseMatrixResults(matrixResults, docs)
   return results
 }
+
+exports.findOne = async (root, args) => {
+  const fields = { _id: 1, name: 1, address: 1, geometry: 1 }
+  const query = { _id: args._id }
+  const doc = await Growler.findOne(query)
+    .select(fields)
+    .exec()
+  return doc
+}

@@ -9,6 +9,7 @@ const Growler = require('../src/api/core/model')
 const data = require('../db.json')
 
 describe('api', function () {
+  let doc
   before(async () => {
     try {
       app.listen(port)
@@ -16,6 +17,10 @@ describe('api', function () {
       throw err
     }
     await Growler.insertMany(data)
+    const docs = await Growler.find({}, { _id: 1 })
+      .limit(1)
+      .exec()
+    doc = docs[0]
   })
 
   describe('static', () => {
@@ -116,6 +121,43 @@ describe('api', function () {
       const query = `
       query {
         findAll
+      }`
+      await request(app)
+        .post('/graphql')
+        .send({ query })
+        .expect(400)
+    })
+  })
+
+  describe('query findOne', () => {
+    it('success', async () => {
+      const query = `
+      query {
+        findOne(_id: "${doc._id}") {
+          name, address, geometry {
+            type, coordinates
+          }
+        }
+      }`
+      const response = await request(app)
+        .post('/graphql')
+        .send({ query })
+        .expect(200)
+      expect(response.body.data.findOne).to.be.a('object')
+      expect(response.body.data.findOne.name).to.be.a('string')
+      expect(response.body.data.findOne.address).to.be.a('string')
+      expect(response.body.data.findOne.geometry.type).to.be.a('string')
+      expect(response.body.data.findOne.geometry.coordinates).to.be.a('array')
+      response.body.data.findOne.geometry.coordinates.forEach(point => {
+        expect(point).to.be.a('number')
+      })
+      expect(response.body.errors).to.be.a('undefined')
+    })
+
+    it('bad request', async () => {
+      const query = `
+      query {
+        findOne
       }`
       await request(app)
         .post('/graphql')

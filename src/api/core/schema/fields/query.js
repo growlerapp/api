@@ -18,7 +18,7 @@ const {
   TransitModes,
   TransitRoutingPreference
 } = require('../type')
-const { findAll, findByProximity } = require('../resolvers')
+const { findAll, findByProximity, findOne } = require('../resolvers')
 
 exports.findAll = {
   type: new GraphQLList(GrowlerType),
@@ -89,4 +89,15 @@ exports.findByProximity = {
     }
   },
   resolve: findByProximity
+}
+
+exports.findOne = {
+  type: GrowlerType,
+  args: {
+    _id: {
+      type: new GraphQLNonNull(GraphQLString),
+      description: 'Búsqueda de growler por id'
+    }
+  },
+  resolve: findOne
 }

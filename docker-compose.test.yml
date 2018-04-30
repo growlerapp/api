@@ -6,7 +6,7 @@ services:
     build: .
     env_file: .env
     environment:
-      MONGODB_URI: mongodb://mongo/growler
+      MONGODB_URI: mongodb://mongo/growler_test
     ports:
       - 3000:3000
       - 9229:9229

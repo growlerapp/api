@@ -1,3 +1,9 @@
+### 2.2.0 (2018-04-30)
+
+##### New Features
+
+* **query:**  add filter by _id in findByProximity ([fba9f1c3](https://github.com/growlerapp/api/commit/fba9f1c335f56559f86e5be6bb8bb372d81883d5))
+
 ### 2.1.0 (2018-04-30)
 
 ##### Chores

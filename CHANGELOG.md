@@ -1,3 +1,9 @@
+#### 2.0.3 (2018-04-30)
+
+##### Bug Fixes
+
+* **resolver:**  fix in empty results ([adabc21b](https://github.com/growlerapp/api/commit/adabc21b850ca54af0b6b0f6e294670946b8c929))
+
 #### 2.0.2 (2018-04-30)
 
 ##### Chores

@@ -1,3 +1,13 @@
+#### 2.0.2 (2018-04-30)
+
+##### Chores
+
+* **query:**  add _id ([f30bba86](https://github.com/growlerapp/api/commit/f30bba86c2a77baf94792acdc074da96202c059d))
+
+##### New Features
+
+* **proximity:**  add max_distance ([448843a9](https://github.com/growlerapp/api/commit/448843a92dc1d15ce466178bba35ec16a2bb5d53))
+
 #### 2.0.1 (2018-04-29)
 
 ##### Chores

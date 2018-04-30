@@ -82,6 +82,10 @@ exports.findByProximity = {
     transit_routing_preference: {
       type: TransitRoutingPreference,
       description: 'Especifica preferencias para solicitudes de transporte.'
+    },
+    max_distance: {
+      type: GraphQLFloat,
+      description: 'Especifica distancia máxima para buscar.'
     }
   },
   resolve: findByProximity

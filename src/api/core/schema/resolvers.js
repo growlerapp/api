@@ -20,7 +20,11 @@ exports.findAll = async (root, args) => {
 
 exports.findByProximity = async (root, args) => {
   const origins = [{ lat: args.latitude, lng: args.longitude }]
-  const docs = await Growler.findByProximity(args.latitude, args.longitude)
+  const docs = await Growler.findByProximity(
+    args.latitude,
+    args.longitude,
+    args.max_distance
+  )
   const destinations = docs.map(doc => {
     return {
       lat: doc.geometry.coordinates[1],

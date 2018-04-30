@@ -22,13 +22,15 @@ Model.pre('save', async doc => {
   }
 })
 
-Model.statics.findByProximity = async function (lat, lng) {
+Model.statics.findByProximity = async function (lat, lng, maxDistance) {
+  const options = {
+    near: { type: 'Point', coordinates: [lng, lat] },
+    distanceField: 'distance',
+    spherical: true
+  }
+  if (maxDistance) options.maxDistance = maxDistance
   const results = await this.aggregate()
-    .near({
-      near: { type: 'Point', coordinates: [lng, lat] },
-      distanceField: 'distance',
-      spherical: true
-    })
+    .near(options)
     .exec()
   return results
 }

@@ -1,3 +1,3 @@
-FROM lgatica/node-build:9-onbuild
+FROM lgatica/node-build:10-onbuild
 
 EXPOSE 3000

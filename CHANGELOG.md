@@ -1,3 +1,19 @@
+### 2.1.0 (2018-04-30)
+
+##### Chores
+
+* **nvm:**  add .nvmrc ([6bc9c6bd](https://github.com/growlerapp/api/commit/6bc9c6bdbc3bb769ad270f9c9e0051a088ea9c8a))
+* **docker:**  update docker files ([bf5b5878](https://github.com/growlerapp/api/commit/bf5b587891705c4a91d0ee2d14906bff404d2d7f))
+
+##### New Features
+
+* **app:**
+  *  add helmet ([f8a7e826](https://github.com/growlerapp/api/commit/f8a7e82650df22b0dec695f532c66fa276cd114e))
+  *  add healthcheck to express ([8636fd56](https://github.com/growlerapp/api/commit/8636fd56bd4063b6c776668dc9e903aa23fb49eb))
+* **docker:**  add HEALTHCHECK ([8dc4ae69](https://github.com/growlerapp/api/commit/8dc4ae690349171507b81fb8caec6065f43890d1))
+* **node:**  update node to v10.0.0 ([1c1497ea](https://github.com/growlerapp/api/commit/1c1497ea18d806230ed084d03bd64ad98053bcad))
+* **query:**  add findOne ([81970a2e](https://github.com/growlerapp/api/commit/81970a2ee731fc92f94b97437c63e83965f65dc1))
+
 #### 2.0.3 (2018-04-30)
 
 ##### Bug Fixes

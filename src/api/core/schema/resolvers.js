@@ -23,7 +23,8 @@ exports.findByProximity = async (root, args) => {
   const docs = await Growler.findByProximity(
     args.latitude,
     args.longitude,
-    args.max_distance
+    args.max_distance,
+    args._id
   )
   if (docs.length === 0) return docs
   const destinations = docs.map(doc => {

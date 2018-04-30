@@ -86,6 +86,10 @@ exports.findByProximity = {
     max_distance: {
       type: GraphQLFloat,
       description: 'Especifica distancia máxima para buscar en metros.'
+    },
+    _id: {
+      type: GraphQLString,
+      description: 'Filtrar resultados de growlers por id'
     }
   },
   resolve: findByProximity

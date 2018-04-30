@@ -85,7 +85,7 @@ exports.findByProximity = {
     },
     max_distance: {
       type: GraphQLFloat,
-      description: 'Especifica distancia máxima para buscar.'
+      description: 'Especifica distancia máxima para buscar en metros.'
     }
   },
   resolve: findByProximity

@@ -25,6 +25,7 @@ exports.findByProximity = async (root, args) => {
     args.longitude,
     args.max_distance
   )
+  if (docs.length === 0) return docs
   const destinations = docs.map(doc => {
     return {
       lat: doc.geometry.coordinates[1],

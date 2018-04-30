@@ -4,7 +4,7 @@ const Growler = require('../model')
 const { matrix, parseMatrixResults } = require('./../../../utils')
 
 exports.findAll = async (root, args) => {
-  const fields = { _id: -1, name: 1, address: 1, geometry: 1 }
+  const fields = { _id: 1, name: 1, address: 1, geometry: 1 }
   const query = {}
   if (args.name) {
     query.name = { $regex: `.*${args.name}.*`, $options: 'i' }

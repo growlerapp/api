@@ -79,6 +79,7 @@ exports.parseMatrixResults = (results, docs) => {
   return docs
     .map((doc, idx) => {
       const result = {
+        _id: doc._id,
         name: doc.name,
         address: doc.address,
         geometry: doc.geometry

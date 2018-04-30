@@ -29,6 +29,7 @@ const GeoJSONPoint = new GraphQLObjectType({
 exports.GrowlerType = new GraphQLObjectType({
   name: 'Growler',
   fields: {
+    _id: { type: GraphQLString },
     name: { type: GraphQLString },
     address: { type: GraphQLString },
     geometry: { type: GeoJSONPoint }
@@ -149,6 +150,7 @@ exports.DistanceMatrixResults = new GraphQLObjectType({
 exports.SimpleMatrix = new GraphQLObjectType({
   name: 'SimpleMatrix',
   fields: {
+    _id: { type: GraphQLString },
     name: { type: GraphQLString },
     address: { type: GraphQLString },
     geometry: { type: GeoJSONPoint },

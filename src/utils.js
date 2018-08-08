@@ -98,3 +98,17 @@ exports.parseMatrixResults = (results, docs) => {
     })
     .sort((a, b) => a.distance.value - b.distance.value)
 }
+
+exports.findPlace = async (name, lat, lng, language = 'es') => {
+  const googleMapsClient = getClient()
+  const response = await googleMapsClient
+    .place({
+      input: name,
+      inputtype: 'textquery',
+      language: language,
+      fields: 'opening_hours',
+      locationbias: `point:${lat},${lng}`
+    })
+    .asPromise()
+  return response
+}

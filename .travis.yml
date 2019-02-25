@@ -1,26 +1,46 @@
----
 language: node_js
-node_js: "9"
-services:
-  - mongodb
-  - docker
+cache:
+  directories:
+    - ~/.npm
+    - .nyc_output
+node_js:
+  - "11"
 notifications:
   email: false
-before_script:
-  - sleep 15
-  - mongo growler --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
-script:
-  - npm test
-after_success:
-  - npm i -g coveralls codeclimate-test-reporter
-  - coveralls < coverage/lcov.info
-  - codeclimate-test-reporter < coverage/lcov.info
-before_deploy:
-  - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
-  - docker build -t registry.heroku.com/api-growlerapp/web --build-arg NODE_ENV=production .
-deploy:
-  provider: script
-  script: docker push registry.heroku.com/api-growlerapp/web
-  skip_cleanup: true
-  on:
-    branch: master
+stages:
+  - lint
+  - test
+  - deploy
+jobs:
+  include:
+    - stage: lint
+      name: eslint
+      script: npx eslint .
+    - stage: test
+      services:
+        - mongodb
+        - docker
+      before_script:
+        - sleep 15
+        - mongo growler --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+      script: npm t
+      after_success:
+        - npm i -g coveralls codeclimate-test-reporter
+        - coveralls < coverage/lcov.info
+        - codeclimate-test-reporter < coverage/lcov.info
+    - stage: deploy
+      name: production
+      before_script:
+        - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
+        - docker build -t registry.heroku.com/api-growlerapp/web --build-arg NODE_ENV=production .
+      script: docker push registry.heroku.com/api-growlerapp/web
+      skip_cleanup: true
+      if: branch = master
+    - stage: deploy
+      name: testing
+      before_script:
+        - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
+        - docker build -t registry.heroku.com/api-growlerapp-dev/web --build-arg NODE_ENV=production .
+      script: docker push registry.heroku.com/api-growlerapp-dev/web
+      skip_cleanup: true
+      if: branch != master

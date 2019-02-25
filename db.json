@@ -1,7 +1,4 @@
 [{
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a0"
-  },
   "geometry": {
     "coordinates": [-70.6345789, -33.43379],
     "type": "Point"
@@ -13,12 +10,8 @@
     "price": 6500,
     "liters": 1.9
   }],
-  "place_id": "ChIJw7qWuJrFYpYRBW6ZP7VVzKI",
-  "__v": 0
+  "place_id": "ChIJw7qWuJrFYpYRBW6ZP7VVzKI"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a1"
-  },
   "geometry": {
     "coordinates": [-70.6243473, -33.4484967],
     "type": "Point"
@@ -30,24 +23,16 @@
     "price": 6000,
     "liters": 1
   }],
-  "place_id": "ChIJUd-itX3FYpYRz_IcleccFKc",
-  "__v": 0
+  "place_id": "ChIJUd-itX3FYpYRz_IcleccFKc"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a2"
-  },
   "geometry": {
     "coordinates": [-70.6910764, -33.4322832],
     "type": "Point"
   },
   "name": "Cerveza Quimera",
   "address": "1576, Alcérreca, Quinta Normal, Región Metropolitana",
-  "place_id": "ChIJhe9gQkDEYpYR8ercRahF5M4",
-  "__v": 0
+  "place_id": "ChIJhe9gQkDEYpYR8ercRahF5M4"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a3"
-  },
   "geometry": {
     "coordinates": [-70.6227715, -33.4307407],
     "type": "Point"
@@ -58,100 +43,64 @@
     "name": "Todas",
     "price": 5700,
     "liters": 1
-  }],
-  "__v": 0
+  }]
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a4"
-  },
   "geometry": {
     "coordinates": [-71.22313, -32.9886899],
     "type": "Point"
   },
   "name": "Tauss Bräu",
-  "address": "Olmué, Región de Valparaíso",
-  "__v": 0
+  "address": "Olmué, Región de Valparaíso"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a5"
-  },
   "geometry": {
     "coordinates": [-71.1551083, -33.3633269],
     "type": "Point"
   },
   "name": "Cervecería Kross",
-  "address": "Camino El Toro, Curacavi, Curacaví, Región Metropolitana",
-  "__v": 0
+  "address": "Camino El Toro, Curacavi, Curacaví, Región Metropolitana"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a7"
-  },
   "geometry": {
     "coordinates": [-71.144004, -33.3462753],
     "type": "Point"
   },
   "name": "Cervecería Brugge",
-  "address": "Camino El Toro 13593, Curacaví, Región Metropolitana",
-  "__v": 0
+  "address": "Camino El Toro 13593, Curacaví, Región Metropolitana"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a8"
-  },
   "geometry": {
     "coordinates": [-70.6516556, -33.465379],
     "type": "Point"
   },
   "name": "Cervecería Spoh",
-  "address": "Roberto Espinoza 1456, Santiago, Región Metropolitana",
-  "__v": 0
+  "address": "Roberto Espinoza 1456, Santiago, Región Metropolitana"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7a9"
-  },
   "geometry": {
     "coordinates": [-70.630117, -33.432604],
     "type": "Point"
   },
   "name": "LOOM",
-  "address": "Bellavista 0360, Providencia, Santiago, Región Metropolitana",
-  "__v": 0
+  "address": "Bellavista 0360, Providencia, Santiago, Región Metropolitana"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7aa"
-  },
   "geometry": {
     "coordinates": [-73.2539797, -39.8098606],
     "type": "Point"
   },
   "name": "El Growler",
-  "address": "99, Saelzer 1, Valdivia, Región de los Ríos",
-  "__v": 0
+  "address": "99, Saelzer 1, Valdivia, Región de los Ríos"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7ab"
-  },
   "geometry": {
     "coordinates": [-73.0607424, -36.7907345],
     "type": "Point"
   },
   "name": "Beer Makers Store",
-  "address": "Ramón Carrasco 52, Concepción, Región del Bío Bío",
-  "__v": 0
+  "address": "Ramón Carrasco 52, Concepción, Región del Bío Bío"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7ac"
-  },
   "geometry": {
     "coordinates": [-73.2549275, -39.8097689],
     "type": "Point"
   },
   "name": "Bar Bundor",
-  "address": "Los Alerces 31, Valdivia, Región de los Ríos",
-  "__v": 0
+  "address": "Los Alerces 31, Valdivia, Región de los Ríos"
 }, {
-  "_id": {
-    "$oid": "5ada2ac13d1cc800120bf7ad"
-  },
   "geometry": {
     "coordinates": [-70.634526, -33.4331851],
     "type": "Point"
@@ -174,12 +123,8 @@
     "name": "Especiales",
     "price": 4500,
     "liters": 1
-  }],
-  "__v": 0
+  }]
 }, {
-  "_id": {
-    "$oid": "5b087ef4fb6fc0292d6e7559"
-  },
   "geometry": {
     "coordinates": [-70.5940794, -33.4538863],
     "type": "Point"
@@ -187,9 +132,6 @@
   "name": "Kunstmann Kneipe",
   "address": "Jorge Washington 144, Ñuñoa"
 }, {
-  "_id": {
-    "$oid": "5b9d807154e459000786f0a1"
-  },
   "geometry": {
     "coordinates": [-70.6124987, -33.4226071],
     "type": "Point"
@@ -212,6 +154,5 @@
     "name": "Especiales",
     "price": 4500,
     "liters": 1
-  }],
-  "__v": 0
+  }]
 }]

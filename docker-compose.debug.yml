@@ -2,25 +2,12 @@
 version: '3'
 
 services:
-  app:
-    build: .
-    env_file: .env
-    environment:
-      MONGODB_URI: mongodb://mongo/growler
-    ports:
-      - 3000:3000
-      - 9229:9229
-    volumes:
-      - .:/usr/src/app
-    command: npm run dev:docker
-    links:
-      - mongo
-    depends_on:
-      - mongo
   mongo:
     image: mongo:3.6.3
     volumes:
       - mongo:/data/db
+    ports:
+      - 27017:27017
 
 volumes:
   mongo:

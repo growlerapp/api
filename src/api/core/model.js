@@ -22,14 +22,13 @@ Model.pre('save', async doc => {
   }
 })
 
-Model.statics.findByProximity = async function (lat, lng, maxDistance, _id) {
+Model.statics.findByProximity = async function (lat, lng) {
   const options = {
     near: { type: 'Point', coordinates: [lng, lat] },
     distanceField: 'distance',
-    spherical: true
+    spherical: true,
+    maxDistance: 200000
   }
-  if (_id) options.query = { _id: mongoose.Types.ObjectId(_id) }
-  if (maxDistance) options.maxDistance = maxDistance
   const results = await this.aggregate()
     .near(options)
     .exec()

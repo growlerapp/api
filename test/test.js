@@ -9,7 +9,6 @@ const Growler = require('../src/api/core/model')
 const data = require('../db.json')
 
 describe('api', function () {
-  let doc
   before(async () => {
     try {
       app.listen(port)
@@ -17,10 +16,6 @@ describe('api', function () {
       throw err
     }
     await Growler.insertMany(data)
-    const docs = await Growler.find({}, { _id: 1 })
-      .limit(1)
-      .exec()
-    doc = docs[0]
   })
 
   describe('static', () => {
@@ -68,7 +63,7 @@ describe('api', function () {
     it('search by name', async () => {
       const query = `
       query {
-        findAll(name: "cerveceria") {
+        findAll(name: "Kunstmann") {
           name, address, geometry {
             type, coordinates
           }
@@ -133,7 +128,7 @@ describe('api', function () {
     it('success', async () => {
       const query = `
       query {
-        findOne(_id: "${doc._id}") {
+        findOne(_id: "5ada2ac13d1cc800120bf7a0") {
           name, address, geometry {
             type, coordinates
           }

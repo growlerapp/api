@@ -3,18 +3,23 @@
 const mongoose = require('mongoose')
 const { geocoding } = require('../../utils')
 
-const Model = new mongoose.Schema({
+const growlerSchema = new mongoose.Schema({
   name: String,
   address: String,
   geometry: {
     type: { type: String },
     coordinates: [Number, Number]
+  },
+  beers: {
+    name: String,
+    price: Number,
+    size: Number
   }
 })
 
-Model.index({ geometry: '2dsphere' })
+growlerSchema.index({ geometry: '2dsphere' })
 
-Model.pre('save', async doc => {
+growlerSchema.pre('save', async doc => {
   if (!doc.geometry && doc.address) {
     try {
       doc.geometry = await geocoding(doc.address)
@@ -22,7 +27,14 @@ Model.pre('save', async doc => {
   }
 })
 
-Model.statics.findByProximity = async function (lat, lng) {
+/**
+ * @memberof growlerSchema
+ * @this growlerSchema
+ * @param {number} lat
+ * @param {number} lng
+ * @returns {Promise<Array<growlerSchema>>}
+ */
+growlerSchema.statics.findByProximity = async function (lat, lng) {
   const options = {
     near: { type: 'Point', coordinates: [lng, lat] },
     distanceField: 'distance',
@@ -35,4 +47,4 @@ Model.statics.findByProximity = async function (lat, lng) {
   return results
 }
 
-module.exports = mongoose.model('Growler', Model)
+module.exports = mongoose.model('Growler', growlerSchema)

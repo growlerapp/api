@@ -7,7 +7,10 @@ const {
   GraphQLList,
   GraphQLBoolean,
   GraphQLFloat,
-  GraphQLNonNull
+  GraphQLNonNull,
+  GraphQLInputObjectType,
+  GraphQLInt,
+  GraphQLEnumType
 } = require('graphql/type')
 const { photo, place, matrix } = require('./resolvers')
 
@@ -16,6 +19,7 @@ const CoordinatesScalar = new GraphQLScalarType({
   description: 'A (multidimensional) set of coordinates following x, y order.',
   serialize: value => value,
   parseValue: value => value,
+  // @ts-ignore
   parseLiteral: valueAST => valueAST.value
 })
 
@@ -93,5 +97,33 @@ exports.GrowlerType = new GraphQLObjectType({
       },
       resolve: matrix
     }
+  }
+})
+
+const BeerSize = new GraphQLEnumType({
+  name: 'BeerSize',
+  values: {
+    SMALL: { value: 32, description: '32 onzas (1 litro)' },
+    BIG: { value: 64, description: '64 onzas (1,9 litro)' }
+  }
+})
+
+const BeerInputType = new GraphQLInputObjectType({
+  name: 'BeerInput',
+  fields: {
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    price: { type: new GraphQLNonNull(GraphQLInt) },
+    size: { type: new GraphQLNonNull(BeerSize) }
+  }
+})
+
+exports.UploadBarInput = new GraphQLInputObjectType({
+  name: 'UploadBarInput',
+  fields: {
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    address: { type: new GraphQLNonNull(GraphQLString) },
+    latitude: { type: new GraphQLNonNull(GraphQLFloat) },
+    longitude: { type: new GraphQLNonNull(GraphQLFloat) },
+    beers: { type: new GraphQLNonNull(GraphQLList(BeerInputType)) }
   }
 })

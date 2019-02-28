@@ -76,3 +76,16 @@ exports.photo = (parent, args, context, info) => {
   const photo = parsePhoto(parent.photo, args.key)
   return photo
 }
+
+exports.uploadBar = async (root, args, context, info) => {
+  const growler = await Growler.create({
+    name: args.input.name,
+    address: args.input.address,
+    geometry: {
+      coordinates: [args.input.longitude, args.input.latitude],
+      type: 'Point'
+    },
+    beers: args.input.beers
+  })
+  return growler
+}

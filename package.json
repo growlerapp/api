@@ -5,7 +5,7 @@
   "main": "src",
   "scripts": {
     "start": "node src",
-    "dev": "nodemon src",
+    "dev": "nodemon --inspect=0.0.0.0:9229 src",
     "dev:docker": "nodemon --inspect=0.0.0.0:9229 src",
     "initdb": "node src/initdb",
     "lint": "eslint .",

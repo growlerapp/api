@@ -59,7 +59,7 @@ const Place = new GraphQLObjectType({
     photo: {
       type: GraphQLString,
       args: {
-        key: { type: new GraphQLNonNull(GraphQLString) }
+        key: { type: GraphQLString }
       },
       resolve: photo
     },

@@ -73,6 +73,7 @@ exports.place = async (parent, args, context, info) => {
 }
 
 exports.photo = (parent, args, context, info) => {
+  if (!parent.photo) return null
   const photo = parsePhoto(parent.photo, args.key)
   return photo
 }

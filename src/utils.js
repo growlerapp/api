@@ -142,7 +142,10 @@ exports.parsePlace = place => {
       openNow: place.result.opening_hours.open_now,
       schedules: place.result.opening_hours.weekday_text.map(parseWeekDay)
     },
-    photo: place.result.photos.length > 0 ? place.result.photos[0] : null,
+    photo:
+      place.result.photos && place.result.photos.length > 0
+        ? place.result.photos[0]
+        : null,
     rating: place.result.rating,
     website: place.result.website
   }

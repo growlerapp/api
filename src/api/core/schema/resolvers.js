@@ -58,7 +58,8 @@ exports.matrix = async (parent, args, context, info) => {
       },
       mode: mode
     })
-    results.push(parseMatrixResults(matrixResults))
+    const parsed = parseMatrixResults(matrixResults)
+    if (parsed) results.push(parsed)
   }
   return results
 }

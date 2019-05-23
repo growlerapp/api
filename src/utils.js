@@ -126,11 +126,11 @@ const parseWeekDay = weekDay => {
   }
 }
 
-exports.parsePhoto = (photo, key) => {
+exports.parsePhoto = photo => {
   const params = querystring.stringify({
     maxwidth: 400,
     photoreference: photo.photo_reference,
-    key: key
+    key: config.google.apiKey
   })
   return `https://maps.googleapis.com/maps/api/place/photo?${params}`
 }

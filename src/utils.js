@@ -136,12 +136,16 @@ exports.parsePhoto = (photo, key) => {
 }
 
 exports.parsePlace = place => {
-  return {
-    phone: place.result.formatted_phone_number,
-    schedule: {
+  let schedule = null
+  if (place.result.opening_hours) {
+    schedule = {
       openNow: place.result.opening_hours.open_now,
       schedules: place.result.opening_hours.weekday_text.map(parseWeekDay)
-    },
+    }
+  }
+  return {
+    phone: place.result.formatted_phone_number,
+    schedule,
     photo:
       place.result.photos && place.result.photos.length > 0
         ? place.result.photos[0]

@@ -48,7 +48,7 @@
     "graphql-playground-middleware-express": "1.6.1",
     "helmet": "3.12.0",
     "mongoose": "5.0.16",
-    "morgan": "1.9.0",
+    "morgan": "1.9.1",
     "raven": "2.6.0"
   },
   "devDependencies": {

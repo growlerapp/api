@@ -70,7 +70,7 @@
     "nodemon": "1.19.0",
     "nyc": "13.3.0",
     "prettier-standard": "8.0.1",
-    "supertest": "3.3.0"
+    "supertest": "3.4.2"
   },
   "eslintConfig": {
     "extends": "standard",

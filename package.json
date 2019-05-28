@@ -67,7 +67,7 @@
     "lint-staged": "8.1.7",
     "mocha": "6.1.4",
     "nodemon": "1.19.1",
-    "nyc": "13.3.0",
+    "nyc": "14.1.1",
     "prettier-standard": "8.0.1",
     "supertest": "3.4.2"
   },

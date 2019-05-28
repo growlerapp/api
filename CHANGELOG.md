@@ -1,3 +1,42 @@
+# [3.0.0](https://github.com/growlerapp/api/compare/v2.2.0...v3.0.0) (2019-05-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @godaddy/terminus to v4 ([36162e2](https://github.com/growlerapp/api/commit/36162e2))
+* **deps:** update dependency apollo-server-express to v1.4.0 ([1df5dd4](https://github.com/growlerapp/api/commit/1df5dd4))
+* **deps:** update dependency apollo-server-express to v2 ([cdd6e06](https://github.com/growlerapp/api/commit/cdd6e06))
+* **deps:** update dependency body-parser to v1.19.0 ([cd66303](https://github.com/growlerapp/api/commit/cd66303))
+* **deps:** update dependency cors to v2.8.5 ([14bc8d7](https://github.com/growlerapp/api/commit/14bc8d7))
+* **deps:** update dependency dotenv to v6.2.0 ([f0dd736](https://github.com/growlerapp/api/commit/f0dd736))
+* **deps:** update dependency dotenv to v8 ([0df17fd](https://github.com/growlerapp/api/commit/0df17fd))
+* **deps:** update dependency express to v4.17.0 ([86cb00d](https://github.com/growlerapp/api/commit/86cb00d))
+* **deps:** update dependency express to v4.17.1 ([4360649](https://github.com/growlerapp/api/commit/4360649))
+* **deps:** update dependency graphql to v14 ([df960f3](https://github.com/growlerapp/api/commit/df960f3))
+* **deps:** update dependency graphql-playground-middleware-express to v1.7.12 ([056b9aa](https://github.com/growlerapp/api/commit/056b9aa))
+* **deps:** update dependency helmet to v3.18.0 ([60f6edf](https://github.com/growlerapp/api/commit/60f6edf))
+* **deps:** update dependency mongoose to v5.5.11 ([7c81873](https://github.com/growlerapp/api/commit/7c81873))
+* **node:** set node to v12.3.1 ([475542f](https://github.com/growlerapp/api/commit/475542f))
+* **resolver:** ignore null values in matrix ([cd33cde](https://github.com/growlerapp/api/commit/cd33cde))
+* **types:** set optional arg key in Place.photo ([cc6d13d](https://github.com/growlerapp/api/commit/cc6d13d))
+* **utils:** fix parsePlace when not schedule data ([a914155](https://github.com/growlerapp/api/commit/a914155))
+* **utils:** fix place errors ([47ee80a](https://github.com/growlerapp/api/commit/47ee80a))
+* **utils:** use server key for get location photo ([b35033b](https://github.com/growlerapp/api/commit/b35033b))
+
+
+### Features
+
+* **deps:** upgrade dependencies ([baff26f](https://github.com/growlerapp/api/commit/baff26f))
+* **graphql:** add place information ([9600def](https://github.com/growlerapp/api/commit/9600def))
+* **model:** add beers to Growler model ([1935775](https://github.com/growlerapp/api/commit/1935775))
+* **mutations:** add uploadBar ([23a01a8](https://github.com/growlerapp/api/commit/23a01a8))
+* **utils:** add findPlace ([64bb153](https://github.com/growlerapp/api/commit/64bb153))
+
+
+### BREAKING CHANGES
+
+* **graphql:** Replace args and type of findByProximity
+
 ### 2.2.0 (2018-04-30)
 
 ##### New Features
@@ -119,4 +158,3 @@
 ##### Tests
 
 * **test:**  add tests ([0f2a03a4](https://github.com/growlerapp/api/commit/0f2a03a44dbf6dabd334a614890e6d3792fbc43c))
-

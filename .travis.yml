@@ -3,8 +3,7 @@ cache:
   directories:
     - ~/.npm
     - .nyc_output
-node_js:
-  - "12.3.1"
+node_js: "12.3.1"
 notifications:
   email: false
 stages:
@@ -18,8 +17,7 @@ jobs:
       script: npx eslint .
     - stage: lint
       name: commitlint
-      before_script:
-        - npm i -g @commitlint/travis-cli
+      before_script: npm i -g @commitlint/travis-cli
       script: commitlint-travis
     - stage: test
       services:
@@ -35,35 +33,17 @@ jobs:
         - codeclimate-test-reporter < coverage/lcov.info
     - stage: deploy
       name: production
-      before_script:
-        - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
-        - docker build -t registry.heroku.com/api-growlerapp/web --build-arg NODE_ENV=production .
-      script:
-        - |
-          docker push registry.heroku.com/api-growlerapp/web
-          IMAGE_ID=$(docker inspect registry.heroku.com/api-growlerapp/web --format={{.Id}})
-          PAYLOAD='{"updates":[{"type":"web","docker_image":"'"$IMAGE_ID"'"}]}'
-          curl -n -X PATCH https://api.heroku.com/apps/api-growlerapp/formation \
-          -d "$PAYLOAD" \
-          -H "Content-Type: application/json" \
-          -H "Accept: application/vnd.heroku+json; version=3.docker-releases" \
-          -H "Authorization: Bearer $HEROKU_API_KEY"
+      env:
+        - HEROKU_APP_NAME=api-growlerapp
+        - HEROKU_APP_TYPE=web
+      script: bash .travis/heroku.container-release.sh
       skip_cleanup: true
       if: branch = master
     - stage: deploy
       name: testing
-      before_script:
-        - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
-        - docker build -t registry.heroku.com/api-growlerapp-dev/web --build-arg NODE_ENV=production .
-      script:
-        - |
-          docker push registry.heroku.com/api-growlerapp-dev/web
-          IMAGE_ID=$(docker inspect registry.heroku.com/api-growlerapp-dev/web --format={{.Id}})
-          PAYLOAD='{"updates":[{"type":"web","docker_image":"'"$IMAGE_ID"'"}]}'
-          curl -n -X PATCH https://api.heroku.com/apps/api-growlerapp-dev/formation \
-          -d "$PAYLOAD" \
-          -H "Content-Type: application/json" \
-          -H "Accept: application/vnd.heroku+json; version=3.docker-releases" \
-          -H "Authorization: Bearer $HEROKU_API_KEY"
+      env:
+        - HEROKU_APP_NAME=api-growlerapp-dev
+        - HEROKU_APP_TYPE=web
+      script: bash .travis/heroku.container-release.sh
       skip_cleanup: true
       if: branch != master

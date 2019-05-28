@@ -2,7 +2,7 @@
 
 const http = require('http')
 const mongoose = require('mongoose')
-const terminus = require('@godaddy/terminus')
+const { createTerminus } = require('@godaddy/terminus')
 const app = require('./app')
 const { port } = require('./config')
 
@@ -28,7 +28,7 @@ const options = {
   signal: process.env.HEALTHCHECK_SIGNAL || 'SIGINT',
   onSignal
 }
-terminus(server, options)
+createTerminus(server, options)
 
 server.listen(port)
 console.log(`Listen in port ${port}`) // eslint-disable-line

@@ -10,10 +10,7 @@
     "initdb": "node src/initdb",
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
-    "test": "MONGODB_URI=mongodb://localhost/growler_test nyc mocha",
-    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
-    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
-    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
+    "test": "MONGODB_URI=mongodb://localhost/growler_test nyc mocha"
   },
   "engines": {
     "node": "12.3.1"
@@ -61,7 +58,6 @@
     "eslint-plugin-node": "9.1.0",
     "eslint-plugin-promise": "4.1.1",
     "eslint-plugin-standard": "4.0.0",
-    "generate-changelog": "1.7.1",
     "husky": "2.3.0",
     "lint-staged": "8.1.7",
     "mocha": "6.1.4",

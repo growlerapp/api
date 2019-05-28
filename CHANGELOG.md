@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/growlerapp/api/compare/v3.0.0...v3.0.1) (2019-05-28)
+
+
+### Bug Fixes
+
+* **docker:** install npm dependencies in builder ([ce34e37](https://github.com/growlerapp/api/commit/ce34e37))
+
 # [3.0.0](https://github.com/growlerapp/api/compare/v2.2.0...v3.0.0) (2019-05-28)
 
 

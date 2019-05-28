@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 
 # Install npm dependencies
 COPY package.json package-lock.* /usr/src/app/
+RUN npm i
 
 FROM node:12.3.1-alpine
 

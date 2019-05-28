@@ -10,14 +10,9 @@ module.exports = app => {
     schema,
     context: ({ req }) => ({
       req
-    }),
-    playground: true
+    })
   }
-  if (process.env.NODE_ENV === 'production') {
-    options.playground = false
-  } else {
-    app.get('/', (req, res) => res.redirect(graphqlPath))
-  }
+  app.get('/', (req, res) => res.redirect(graphqlPath))
   const server = new ApolloServer(options)
   server.applyMiddleware({ app, path: graphqlPath })
 }

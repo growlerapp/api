@@ -49,6 +49,8 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "7.6.1",
+    "@commitlint/config-conventional": "7.6.0",
     "@types/google__maps": "0.5.5",
     "@types/mongoose": "5.5.3",
     "@types/node": "11.13.11",
@@ -82,7 +84,8 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -93,6 +96,11 @@
         "git add"
       ]
     }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "renovate": {
     "automerge": "minor",

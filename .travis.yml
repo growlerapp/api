@@ -16,6 +16,11 @@ jobs:
     - stage: lint
       name: eslint
       script: npx eslint .
+    - stage: lint
+      name: commitlint
+      before_script:
+        - npm i -g @commitlint/travis-cli
+      script: commitlint-travis
     - stage: test
       services:
         - mongodb

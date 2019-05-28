@@ -97,7 +97,7 @@
   "renovate": {
     "automerge": "minor",
     "extends": [
-      ":library"
+      "config:js-app"
     ]
   },
   "mocha": {

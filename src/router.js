@@ -1,30 +1,23 @@
 'use strict'
 
-const { graphqlExpress } = require('apollo-server-express')
-const expressPlayground = require('graphql-playground-middleware-express')
-  .default
+const { ApolloServer } = require('apollo-server-express')
 const schema = require('./schema')
 
 module.exports = app => {
-  const endpoint = '/graphql'
-  app.get('/', async (req, res) => {
-    await res.redirect('/playground')
-  })
-  app.use(
-    endpoint,
-    graphqlExpress(req => {
-      return {
-        schema,
-        context: { req },
-        tracing: true,
-        cacheControl: true
-      }
-    })
-  )
-  if (
-    process.env.NODE_ENV !== 'production' ||
-    process.env.PLAYGROUND === 'true'
-  ) {
-    app.use('/playground', expressPlayground({ endpoint }))
+  const graphqlPath = '/graphql'
+  /** @type {import('apollo-server-express').ApolloServerExpressConfig} */
+  const options = {
+    schema,
+    context: ({ req }) => ({
+      req
+    }),
+    playground: true
   }
+  if (process.env.NODE_ENV === 'production') {
+    options.playground = false
+  } else {
+    app.get('/', (req, res) => res.redirect(graphqlPath))
+  }
+  const server = new ApolloServer(options)
+  server.applyMiddleware({ app, path: graphqlPath })
 }

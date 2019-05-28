@@ -10,7 +10,6 @@
     "initdb": "node src/initdb",
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
-    "precommit": "lint-staged",
     "test": "MONGODB_URI=mongodb://localhost/growler_test istanbul cover _mocha test -- --exit",
     "test:docker": "nyc mocha --exit --inspect-brk=0.0.0.0:9229",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
@@ -83,14 +82,14 @@
   "eslintIgnore": [
     "coverage"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "linters": {
-      "src/**/*.js": [
-        "eslint --fix",
-        "prettier-standard",
-        "git add"
-      ],
-      "test/**/*.js": [
+      "{src,test}/**/*.js": [
         "eslint --fix",
         "prettier-standard",
         "git add"

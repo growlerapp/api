@@ -28,7 +28,7 @@ describe('api', function () {
       const response = await request(app)
         .get('/')
         .expect(302)
-      expect(response.headers.location).to.equal('/playground')
+      expect(response.headers.location).to.equal('/graphql')
     })
 
     it('GET /not-found', async () => {

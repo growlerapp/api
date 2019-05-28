@@ -12,7 +12,7 @@ services:
       - 9229:9229
     volumes:
       - .:/usr/src/app
-    command: npm run test:docker
+    command: npx nyc mocha
     links:
       - mongo
     depends_on:

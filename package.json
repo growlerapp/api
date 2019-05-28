@@ -10,8 +10,7 @@
     "initdb": "node src/initdb",
     "lint": "eslint .",
     "format": "prettier-standard 'src/**/*.js' 'test/**/*.js'",
-    "test": "MONGODB_URI=mongodb://localhost/growler_test istanbul cover _mocha test -- --exit",
-    "test:docker": "nyc mocha --exit --inspect-brk=0.0.0.0:9229",
+    "test": "MONGODB_URI=mongodb://localhost/growler_test nyc mocha",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags"
@@ -63,11 +62,11 @@
     "eslint-plugin-standard": "4.0.0",
     "generate-changelog": "1.7.1",
     "husky": "2.3.0",
-    "istanbul": "1.0.0-alpha.2",
     "lint-staged": "8.1.7",
     "mocha": "6.1.4",
     "nodemon": "1.19.1",
     "nyc": "14.1.1",
+    "nyc-config-common": "1.0.1",
     "prettier-standard": "9.1.1",
     "supertest": "4.0.2"
   },
@@ -101,5 +100,11 @@
     "extends": [
       ":library"
     ]
+  },
+  "mocha": {
+    "exit": true
+  },
+  "nyc": {
+    "extends": "nyc-config-common"
   }
 }

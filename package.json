@@ -33,6 +33,7 @@
   "dependencies": {
     "@godaddy/terminus": "4.1.2",
     "@google/maps": "0.5.5",
+    "@sentry/node": "5.3.0",
     "apollo-server-express": "2.5.0",
     "body-parser": "1.19.0",
     "cors": "2.8.5",
@@ -43,7 +44,6 @@
     "helmet": "3.18.0",
     "mongoose": "5.5.11",
     "morgan": "1.9.1",
-    "raven": "2.6.4",
     "uuid": "3.3.2"
   },
   "devDependencies": {

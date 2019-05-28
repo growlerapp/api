@@ -36,7 +36,7 @@ jobs:
       env:
         - HEROKU_APP_NAME=api-growlerapp
         - HEROKU_APP_TYPE=web
-      script: bash .travis/heroku.container-release.sh
+      script: npx semantic-release
       skip_cleanup: true
       if: branch = master
     - stage: deploy
@@ -44,6 +44,6 @@ jobs:
       env:
         - HEROKU_APP_NAME=api-growlerapp-dev
         - HEROKU_APP_TYPE=web
-      script: bash .travis/heroku.container-release.sh
+      script: bash .travis/heroku.container-release-publish.sh
       skip_cleanup: true
       if: branch != master

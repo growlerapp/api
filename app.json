@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "description": "App for search your near growler",
+  "scripts": {
+    "postdeploy": "npm run initdb"
+  },
+  "env": {
+    "GOOGLE_MAPS_API_KEY": {
+      "required": true
+    },
+    "NODE_ENV": "staging",
+    "SENTRY_TOKEN": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "mongolab"
+  ],
+  "buildpacks": [],
+  "stack": "container"
+}

@@ -13,8 +13,9 @@ const pkg = require('../package.json')
 
 const router = require('./router')
 
-mongoose.connect(config.db)
+mongoose.connect(config.db, { useNewUrlParser: true })
 mongoose.Promise = Promise
+mongoose.set('useCreateIndex', true)
 
 const app = express()
 

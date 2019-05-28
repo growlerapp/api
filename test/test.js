@@ -167,6 +167,7 @@ describe('api', function () {
   })
 
   after(async () => {
-    await Growler.remove().exec()
+    const docs = await Growler.find({}, { _id: 1 }).exec()
+    await Growler.deleteMany({ _id: { $in: docs.map(({ _id }) => _id) } })
   })
 })

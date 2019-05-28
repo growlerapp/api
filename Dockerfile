@@ -1,8 +1,27 @@
-FROM lgatica/node-build:10-onbuild
+FROM node:12.3.1-alpine as builder
 
-RUN apk add --no-cache curl
+# ARGS for node
+ARG NODE_ENV=production
+ENV NODE_ENV=$NODE_ENV
 
-EXPOSE 3000
+WORKDIR /usr/src/app
 
-HEALTHCHECK --interval=5m --timeout=3s \
-  CMD curl -f http://localhost:3000/healthcheck || exit 1
+# Install npm dependencies
+COPY package.json package-lock.* /usr/src/app/
+
+FROM node:12.3.1-alpine
+
+LABEL maintainer "Leonardo Gatica <lgatica@protonmail.com>"
+
+ENV NODE_ENV=$NODE_ENV PORT=3000
+
+WORKDIR /usr/src/app
+
+# Copy source code
+COPY . /usr/src/app
+# Copy node_modules from builder
+COPY --from=builder /usr/src/app/node_modules /usr/src/app/node_modules
+
+EXPOSE $PORT
+
+CMD [ "node", "src" ]

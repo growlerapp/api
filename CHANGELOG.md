@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/growlerapp/api/compare/v3.0.1...v3.0.2) (2019-05-28)
+
+
+### Bug Fixes
+
+* **deps:** migrate to @sentry/node ([aef37d5](https://github.com/growlerapp/api/commit/aef37d5))
+
 ## [3.0.1](https://github.com/growlerapp/api/compare/v3.0.0...v3.0.1) (2019-05-28)
 
 

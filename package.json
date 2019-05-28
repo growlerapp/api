@@ -65,7 +65,7 @@
     "husky": "2.3.0",
     "istanbul": "1.0.0-alpha.2",
     "lint-staged": "8.1.7",
-    "mocha": "5.2.0",
+    "mocha": "6.1.4",
     "nodemon": "1.19.1",
     "nyc": "13.3.0",
     "prettier-standard": "8.0.1",

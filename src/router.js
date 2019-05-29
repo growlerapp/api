@@ -10,7 +10,8 @@ module.exports = app => {
     schema,
     context: ({ req }) => ({
       req
-    })
+    }),
+    playground: true
   }
   app.get('/', (req, res) => res.redirect(graphqlPath))
   const server = new ApolloServer(options)

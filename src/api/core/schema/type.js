@@ -23,6 +23,11 @@ const CoordinatesScalar = new GraphQLScalarType({
   parseLiteral: valueAST => valueAST.value
 })
 
+/**
+ * @typedef {Object} GeoJSONPointType
+ * @property {string} [type]
+ * @property {[number, number]} [coordinates]
+ */
 const GeoJSONPoint = new GraphQLObjectType({
   name: 'GeoJSONPoint',
   description: 'Object describing a single geographical point.',
@@ -32,6 +37,13 @@ const GeoJSONPoint = new GraphQLObjectType({
   }
 })
 
+/**
+ * @typedef {Object} PeriodType
+ * @property {string} [day]
+ * @property {string} [close]
+ * @property {string} [open]
+ * @property {boolean} [available]
+ */
 const Period = new GraphQLObjectType({
   name: 'Period',
   fields: {
@@ -42,6 +54,11 @@ const Period = new GraphQLObjectType({
   }
 })
 
+/**
+ * @typedef {Object} OpeningHoursType
+ * @property {boolean} [openNow]
+ * @property {Array<PeriodType>} [schedules]
+ */
 const OpeningHours = new GraphQLObjectType({
   name: 'OpeningHours',
   fields: {
@@ -50,6 +67,17 @@ const OpeningHours = new GraphQLObjectType({
   }
 })
 
+/**
+ * @typedef {import('@google/maps').PlacePhoto} PlacePhoto
+ */
+/**
+ * @typedef {Object} PlaceType
+ * @property {string} [phone]
+ * @property {OpeningHoursType} [schedule]
+ * @property {PlacePhoto} [photo]
+ * @property {number} [rating]
+ * @property {string} [website]
+ */
 const Place = new GraphQLObjectType({
   name: 'Place',
   description: 'Object describing a find place response.',
@@ -68,6 +96,12 @@ const Place = new GraphQLObjectType({
   }
 })
 
+/**
+ * @typedef {Object} MatrixType
+ * @property {string} [mode]
+ * @property {string} [distance]
+ * @property {string} [duration]
+ */
 const Matrix = new GraphQLObjectType({
   name: 'Matrix',
   fields: {
@@ -77,6 +111,16 @@ const Matrix = new GraphQLObjectType({
   }
 })
 
+/**
+ * @typedef {Object} GrowlerType
+ * @property {string} [_id]
+ * @property {string} [name]
+ * @property {string} [address]
+ * @property {GeoJSONPointType} [geometry]
+ * @property {number} [distance]
+ * @property {PlaceType} [place]
+ * @property {Array<MatrixType>} [matrix]
+ */
 exports.GrowlerType = new GraphQLObjectType({
   name: 'Growler',
   fields: {
@@ -100,6 +144,15 @@ exports.GrowlerType = new GraphQLObjectType({
   }
 })
 
+/**
+ * Enum con filtros de periodos para listar los cursos
+ *
+ * @typedef {Object} BeerSizeType
+ * @property {number} SMALL - 32 onzas (1 litro).
+ * @property {number} BIG - 64 onzas (1,9 litro).
+ * @example
+ * const InputType = require('./Type/inputTypeData')
+ */
 const BeerSize = new GraphQLEnumType({
   name: 'BeerSize',
   values: {
@@ -108,6 +161,12 @@ const BeerSize = new GraphQLEnumType({
   }
 })
 
+/**
+ * @typedef {Object} BeerInputType
+ * @property {string} name
+ * @property {number} price
+ * @property {BeerSizeType} size
+ */
 const BeerInputType = new GraphQLInputObjectType({
   name: 'BeerInput',
   fields: {
@@ -117,6 +176,14 @@ const BeerInputType = new GraphQLInputObjectType({
   }
 })
 
+/**
+ * @typedef {Object} UploadBarInput
+ * @property {string} name
+ * @property {string} address
+ * @property {number} latitude
+ * @property {number} longitude
+ * @property {Array<BeerInputType>} beers
+ */
 exports.UploadBarInput = new GraphQLInputObjectType({
   name: 'UploadBarInput',
   fields: {

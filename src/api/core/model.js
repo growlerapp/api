@@ -3,6 +3,13 @@
 const mongoose = require('mongoose')
 const { geocoding } = require('../../utils')
 
+/**
+ * @typedef {Object} GrowlerSchema
+ * @property {string} name
+ * @property {string} address
+ * @property {string} geometry
+ * @property {string} beers
+ */
 const growlerSchema = new mongoose.Schema({
   name: String,
   address: String,
@@ -19,20 +26,26 @@ const growlerSchema = new mongoose.Schema({
 
 growlerSchema.index({ geometry: '2dsphere' })
 
-growlerSchema.pre('save', async doc => {
-  if (!doc.geometry && doc.address) {
+growlerSchema.pre('save', async () => {
+  // @ts-ignore
+  if (!this.geometry && this.address) {
     try {
-      doc.geometry = await geocoding(doc.address)
-    } catch (err) {}
+      // @ts-ignore
+      this.geometry = await geocoding(this.address)
+    } catch (err) {
+      console.log(err) // eslint-disable-line no-console
+    }
   }
 })
 
 /**
  * @memberof growlerSchema
  * @this growlerSchema
- * @param {number} lat
- * @param {number} lng
- * @returns {Promise<Array<growlerSchema>>}
+ * @param {number} lat - Latitude.
+ * @param {number} lng - Longitude.
+ * @returns {Promise<Array<growlerSchema>>} - A list of growlers.
+ * @example
+ * const docs = await Growler.findByProximity(args.latitude, args.longitude)
  */
 growlerSchema.statics.findByProximity = async function (lat, lng) {
   const options = {

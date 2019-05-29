@@ -9,6 +9,19 @@ const {
   parsePhoto
 } = require('../../../utils')
 
+/**
+ * @typedef {Object} FindAllArgs
+ * @property {string} name - Búsqueda de growlers por nombre
+ * @property {string} address - Búsqueda de growlers por dirección
+ * @property {number} limit
+ */
+/**
+ * @param {*} root -
+ * @param {FindAllArgs} args -
+ * @returns {Promise<Array<*>>} -
+ * @example
+ * const docs = findAll(root, args)
+ */
 exports.findAll = async (root, args) => {
   const fields = { _id: 1, name: 1, address: 1, geometry: 1 }
   const query = {}
@@ -32,11 +45,34 @@ exports.findAll = async (root, args) => {
   return docs
 }
 
+/**
+ * @typedef {Object} FindByProximityArgs
+ * @property {number} latitude
+ * @property {number} longitude
+ */
+/**
+ * @param {*} root -
+ * @param {FindByProximityArgs} args -
+ * @returns {Promise<Array<*>>} -
+ * @example
+ * const docs = findByProximity(root, args)
+ */
 exports.findByProximity = async (root, args) => {
   const docs = await Growler.findByProximity(args.latitude, args.longitude)
   return docs
 }
 
+/**
+ * @typedef {Object} FindOneArgs
+ * @property {string} _id
+ */
+/**
+ * @param {*} root -
+ * @param {*} args -
+ * @returns {Promise<*>} -
+ * @example
+ * const doc = findOne(root, args)
+ */
 exports.findOne = async (root, args) => {
   const fields = { _id: 1, name: 1, address: 1, geometry: 1 }
   const query = { _id: args._id }
@@ -46,8 +82,27 @@ exports.findOne = async (root, args) => {
   return doc
 }
 
-exports.matrix = async (parent, args, context, info) => {
+/**
+ * @typedef {Object} MatrixArgs
+ * @property {number} latitude
+ * @property {number} longitude
+ */
+/**
+ * @typedef {import('./type').GrowlerType} GrowlerType
+ */
+/**
+ * @param {GrowlerType} parent -
+ * @param {MatrixArgs} args -
+ * @returns {Promise<Array<*>>} -
+ * @example
+ * const results = matrix(parent, args)
+ */
+exports.matrix = async (parent, args) => {
   const results = []
+  /**
+   * @typedef {import('@google/maps').TravelMode} TravelMode
+   * @type {Array<TravelMode>}
+   **/
   const modes = ['driving', 'walking', 'transit']
   for (const mode of modes) {
     const matrixResults = await matrix({
@@ -64,7 +119,16 @@ exports.matrix = async (parent, args, context, info) => {
   return results
 }
 
-exports.place = async (parent, args, context, info) => {
+/**
+ * @typedef {import('./type').PlaceType} PlaceType
+ */
+/**
+ * @param {GrowlerType} parent -
+ * @returns {Promise<PlaceType>} -
+ * @example
+ * const results = place(parent)
+ */
+exports.place = async parent => {
   const place = await findPlace(
     parent.name,
     parent.geometry.coordinates[1],
@@ -73,13 +137,29 @@ exports.place = async (parent, args, context, info) => {
   return parsePlace(place)
 }
 
-exports.photo = (parent, args, context, info) => {
+/**
+ * @param {PlaceType} parent -
+ * @returns {string} -
+ * @example
+ * const result = photo(parent)
+ */
+exports.photo = parent => {
   if (!parent.photo) return null
   const photo = parsePhoto(parent.photo)
   return photo
 }
 
-exports.uploadBar = async (root, args, context, info) => {
+/**
+ * @typedef {import('../../../schema/core').Args<import('./type').UploadBarInput>} UploadBarInputArgs
+ */
+/**
+ * @param {*} root -
+ * @param {UploadBarInputArgs} args -
+ * @returns {Promise<*>} -
+ * @example
+ * const growler = uploadBar(root, args)
+ */
+exports.uploadBar = async (root, args) => {
   const growler = await Growler.create({
     name: args.input.name,
     address: args.input.address,

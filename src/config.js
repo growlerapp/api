@@ -3,7 +3,7 @@
 const path = require('path')
 const dotenv = require('dotenv')
 
-dotenv.config({ silent: true, path: path.join(__dirname, '..', '.env') })
+dotenv.config({ path: path.join(__dirname, '..', '.env') })
 
 module.exports = {
   port: process.env.PORT || 3000,

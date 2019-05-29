@@ -19,6 +19,9 @@ jobs:
       name: commitlint
       before_script: npm i -g @commitlint/travis-cli
       script: commitlint-travis
+    - stage: lint
+      name: tsc-compile-check
+      script: npx tsc -p tsconfig.json --noEmit
     - stage: test
       services:
         - mongodb

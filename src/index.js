@@ -9,17 +9,25 @@ const { port } = require('./config')
 const server = http.createServer(app)
 
 /**
- * Metodo encargado ejecutar tareas previas a terminar la aplicación
+ * Metodo encargado ejecutar tareas previas a terminar la aplicación.
+ *
+ * @example
+ * await onSignal()
+ * @returns {Promise<any>} -
  */
 async function onSignal () {
   await mongoose.connection.close()
 }
 
 /**
- * Metodo encargado de verificar que la aplicación este viva
+ * Metodo encargado de verificar que la aplicación este viva.
+ *
+ * @example
+ * await onHealthCheck()
+ * @returns {Promise<any>} -
  */
 async function onHealthCheck () {
-  return mongoose.connection.readyState === 1
+  await Promise.resolve(mongoose.connection.readyState === 1)
 }
 
 const options = {

@@ -1,6 +1,6 @@
 import { Document, Model } from 'mongoose'
 
-interface Growler extends Document {
+export interface Growler extends Document {
   name: String,
   address: String,
   geometry: {

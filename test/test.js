@@ -6,6 +6,7 @@ const request = require('supertest')
 const app = require('../src/app')
 const { port } = require('../src/config')
 const Growler = require('../src/api/core/model')
+// @ts-ignore
 const data = require('../db.json')
 
 describe('api', function () {

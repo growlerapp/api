@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/growlerapp/api/compare/v3.0.3...v3.0.4) (2019-05-29)
+
+
+### Bug Fixes
+
+* **apollo:** enable playground ([ac61362](https://github.com/growlerapp/api/commit/ac61362))
+
 ## [3.0.3](https://github.com/growlerapp/api/compare/v3.0.2...v3.0.3) (2019-05-29)
 
 

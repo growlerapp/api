@@ -1,0 +1,17 @@
+setup:
+  addons:
+    - plan: mongolab
+  config:
+    NODE_ENV: staging
+
+build:
+  docker:
+    web: Dockerfile
+
+release:
+  image: web
+  command:
+    - npm run initdb
+
+run:
+  web: node src

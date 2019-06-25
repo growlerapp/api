@@ -55,7 +55,7 @@
     "@semantic-release/exec": "3.3.4",
     "@semantic-release/git": "7.0.13",
     "@semantic-release/github": "5.4.0",
-    "@semantic-release/npm": "5.1.11",
+    "@semantic-release/npm": "5.1.12",
     "@semantic-release/release-notes-generator": "7.2.0",
     "@types/body-parser": "1.17.0",
     "@types/cors": "2.8.5",

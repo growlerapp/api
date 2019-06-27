@@ -39,4 +39,4 @@ const options = {
 createTerminus(server, options)
 
 server.listen(port)
-console.log(`Listen in port ${port}`) // eslint-disable-line
+console.log(`Listen in port ${port}`) // eslint-disable-line no-console

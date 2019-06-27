@@ -108,31 +108,27 @@ exports.parseMatrixResults = results => {
  */
 const getPlace = async (placeid, language = 'es') => {
   const googleMapsClient = getClient()
-  try {
-    const response = await googleMapsClient
-      .place({
-        placeid,
-        language: language,
-        fields: [
-          'permanently_closed',
-          'photo',
-          'place_id',
-          'url',
-          'utc_offset',
-          'formatted_phone_number',
-          'international_phone_number',
-          'opening_hours',
-          'website',
-          'price_level',
-          'rating',
-          'review'
-        ]
-      })
-      .asPromise()
-    return response.json
-  } catch (err) {
-    throw err
-  }
+  const response = await googleMapsClient
+    .place({
+      placeid,
+      language: language,
+      fields: [
+        'permanently_closed',
+        'photo',
+        'place_id',
+        'url',
+        'utc_offset',
+        'formatted_phone_number',
+        'international_phone_number',
+        'opening_hours',
+        'website',
+        'price_level',
+        'rating',
+        'review'
+      ]
+    })
+    .asPromise()
+  return response.json
 }
 
 /**
@@ -146,22 +142,17 @@ const getPlace = async (placeid, language = 'es') => {
  */
 exports.findPlace = async (name, lat, lng, language = 'es') => {
   const googleMapsClient = getClient()
-  try {
-    const response = await googleMapsClient
-      .findPlace({
-        input: name,
-        inputtype: 'textquery',
-        language: language,
-        fields: ['place_id'],
-        locationbias: `point:${lat},${lng}`
-      })
-      .asPromise()
-    if (response.json.candidates.length === 0) return null
-    const place = await getPlace(response.json.candidates[0].place_id)
-    return place
-  } catch (err) {
-    throw err
-  }
+  const response = await googleMapsClient
+    .findPlace({
+      input: name,
+      inputtype: 'textquery',
+      language: language,
+      fields: ['place_id'],
+      locationbias: `point:${lat},${lng}`
+    })
+    .asPromise()
+  if (response.json.candidates.length === 0) return null
+  return getPlace(response.json.candidates[0].place_id)
 }
 
 /**

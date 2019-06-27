@@ -145,7 +145,7 @@ exports.GrowlerType = new GraphQLObjectType({
 })
 
 /**
- * Enum con filtros de periodos para listar los cursos
+ * Enum con filtros de periodos para listar los cursos.
  *
  * @typedef {Object} BeerSizeType
  * @property {number} SMALL - 32 onzas (1 litro).

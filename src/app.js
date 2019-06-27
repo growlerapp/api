@@ -39,7 +39,7 @@ router(app)
 
 app.use(Sentry.Handlers.errorHandler())
 app.use((err, req, res, next) => {
-  console.error(err) // eslint-disable-line
+  console.error(err) // eslint-disable-line no-console
   res.sendStatus(500)
 })
 

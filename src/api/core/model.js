@@ -47,17 +47,16 @@ growlerSchema.pre('save', async () => {
  * @example
  * const docs = await Growler.findByProximity(args.latitude, args.longitude)
  */
-growlerSchema.statics.findByProximity = async function (lat, lng) {
+growlerSchema.statics.findByProximity = function (lat, lng) {
   const options = {
     near: { type: 'Point', coordinates: [lng, lat] },
     distanceField: 'distance',
     spherical: true,
     maxDistance: 200000
   }
-  const results = await this.aggregate()
+  return this.aggregate()
     .near(options)
     .exec()
-  return results
 }
 
 module.exports = mongoose.model('Growler', growlerSchema)

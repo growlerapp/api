@@ -12,11 +12,7 @@ const data = require('../db.json')
 describe('api', function () {
   let doc
   before(async () => {
-    try {
-      app.listen(port)
-    } catch (err) {
-      throw err
-    }
+    app.listen(port)
     await Growler.insertMany(data)
     const docs = await Growler.find({}, { _id: 1 })
       .limit(1)
@@ -40,6 +36,18 @@ describe('api', function () {
   })
 
   describe('query findAll', () => {
+    // @ts-ignore
+    // eslint-disable-next-line require-jsdoc
+    const checkDoc = doc => {
+      expect(doc.name).to.be.a('string')
+      expect(doc.address).to.be.a('string')
+      expect(doc.geometry.type).to.be.a('string')
+      expect(doc.geometry.coordinates).to.be.a('array')
+      doc.geometry.coordinates.forEach(point => {
+        expect(point).to.be.a('number')
+      })
+    }
+
     it('success', async () => {
       const query = `
       query {
@@ -54,15 +62,7 @@ describe('api', function () {
         .send({ query })
         .expect(200)
       expect(response.body.data.findAll).to.be.a('array')
-      response.body.data.findAll.forEach(doc => {
-        expect(doc.name).to.be.a('string')
-        expect(doc.address).to.be.a('string')
-        expect(doc.geometry.type).to.be.a('string')
-        expect(doc.geometry.coordinates).to.be.a('array')
-        doc.geometry.coordinates.forEach(point => {
-          expect(point).to.be.a('number')
-        })
-      })
+      response.body.data.findAll.forEach(checkDoc)
       expect(response.body.errors).to.be.a('undefined')
     })
 
@@ -80,15 +80,7 @@ describe('api', function () {
         .send({ query })
         .expect(200)
       expect(response.body.data.findAll).to.be.a('array')
-      response.body.data.findAll.forEach(doc => {
-        expect(doc.name).to.be.a('string')
-        expect(doc.address).to.be.a('string')
-        expect(doc.geometry.type).to.be.a('string')
-        expect(doc.geometry.coordinates).to.be.a('array')
-        doc.geometry.coordinates.forEach(point => {
-          expect(point).to.be.a('number')
-        })
-      })
+      response.body.data.findAll.forEach(checkDoc)
       expect(response.body.errors).to.be.a('undefined')
     })
 
@@ -106,15 +98,7 @@ describe('api', function () {
         .send({ query })
         .expect(200)
       expect(response.body.data.findAll).to.be.a('array')
-      response.body.data.findAll.forEach(doc => {
-        expect(doc.name).to.be.a('string')
-        expect(doc.address).to.be.a('string')
-        expect(doc.geometry.type).to.be.a('string')
-        expect(doc.geometry.coordinates).to.be.a('array')
-        doc.geometry.coordinates.forEach(point => {
-          expect(point).to.be.a('number')
-        })
-      })
+      response.body.data.findAll.forEach(checkDoc)
       expect(response.body.errors).to.be.a('undefined')
     })
 

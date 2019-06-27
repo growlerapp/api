@@ -57,9 +57,8 @@ exports.findAll = async (root, args) => {
  * @example
  * const docs = findByProximity(root, args)
  */
-exports.findByProximity = async (root, args) => {
-  const docs = await Growler.findByProximity(args.latitude, args.longitude)
-  return docs
+exports.findByProximity = (root, args) => {
+  return Growler.findByProximity(args.latitude, args.longitude)
 }
 
 /**
@@ -73,13 +72,12 @@ exports.findByProximity = async (root, args) => {
  * @example
  * const doc = findOne(root, args)
  */
-exports.findOne = async (root, args) => {
+exports.findOne = (root, args) => {
   const fields = { _id: 1, name: 1, address: 1, geometry: 1 }
   const query = { _id: args._id }
-  const doc = await Growler.findOne(query)
+  return Growler.findOne(query)
     .select(fields)
     .exec()
-  return doc
 }
 
 /**
@@ -145,8 +143,7 @@ exports.place = async parent => {
  */
 exports.photo = parent => {
   if (!parent.photo) return null
-  const photo = parsePhoto(parent.photo)
-  return photo
+  return parsePhoto(parent.photo)
 }
 
 /**
@@ -159,8 +156,8 @@ exports.photo = parent => {
  * @example
  * const growler = uploadBar(root, args)
  */
-exports.uploadBar = async (root, args) => {
-  const growler = await Growler.create({
+exports.uploadBar = (root, args) => {
+  return Growler.create({
     name: args.input.name,
     address: args.input.address,
     geometry: {
@@ -169,5 +166,4 @@ exports.uploadBar = async (root, args) => {
     },
     beers: args.input.beers
   })
-  return growler
 }

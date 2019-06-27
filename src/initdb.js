@@ -16,11 +16,11 @@ const init = async () => {
     const total = await Growler.count({}).exec()
     if (total === 0) {
       await Growler.insertMany(data)
-      console.log('Load data') // eslint-disable-line
+      console.log('Load data') // eslint-disable-line no-console
     }
     process.exit(0)
   } catch (err) {
-    console.error(err) // eslint-disable-line
+    console.error(err) // eslint-disable-line no-console
     process.exit(1)
   }
 }

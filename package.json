@@ -80,7 +80,7 @@
     "eslint-plugin-sonarjs": "0.4.0",
     "eslint-plugin-standard": "4.0.0",
     "husky": "2.7.0",
-    "lint-staged": "9.0.2",
+    "lint-staged": "9.1.0",
     "mocha": "6.1.4",
     "nodemon": "1.19.1",
     "nyc": "14.1.1",

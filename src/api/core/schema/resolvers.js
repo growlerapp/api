@@ -11,8 +11,8 @@ const {
 
 /**
  * @typedef {Object} FindAllArgs
- * @property {string} name - Búsqueda de growlers por nombre
- * @property {string} address - Búsqueda de growlers por dirección
+ * @property {string} name - Búsqueda de growlers por nombre.
+ * @property {string} address - Búsqueda de growlers por dirección.
  * @property {number} limit
  */
 /**

@@ -103,13 +103,11 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "{src,test}/**/*.js": [
-        "eslint --fix",
-        "prettier-standard",
-        "git add"
-      ]
-    }
+    "{src,test}/**/*.js": [
+      "eslint --fix",
+      "prettier-standard",
+      "git add"
+    ]
   },
   "commitlint": {
     "extends": [

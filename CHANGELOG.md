@@ -1,3 +1,12 @@
+## [3.0.35](https://github.com/growlerapp/api/compare/v3.0.34...v3.0.35) (2019-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency apollo-server-express to v2.7.1 ([1fa247c](https://github.com/growlerapp/api/commit/1fa247c))
+* **deps:** update dependency helmet to v3.20.0 ([25a6221](https://github.com/growlerapp/api/commit/25a6221))
+* **deps:** update dependency mongoose to v5.6.6 ([24c570c](https://github.com/growlerapp/api/commit/24c570c))
+
 ## [3.0.34](https://github.com/growlerapp/api/compare/v3.0.33...v3.0.34) (2019-07-17)
 
 

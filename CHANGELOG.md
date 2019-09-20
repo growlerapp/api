@@ -1,3 +1,10 @@
+## [3.0.68](https://github.com/growlerapp/api/compare/v3.0.67...v3.0.68) (2019-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency helmet to v3.21.1 ([6ee09b5](https://github.com/growlerapp/api/commit/6ee09b5))
+
 ## [3.0.67](https://github.com/growlerapp/api/compare/v3.0.66...v3.0.67) (2019-09-20)
 
 

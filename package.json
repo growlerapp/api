@@ -40,7 +40,7 @@
     "cors": "2.8.5",
     "dotenv": "8.1.0",
     "express": "4.17.1",
-    "graphql": "14.5.7",
+    "graphql": "14.5.8",
     "graphql-geojson": "1.0.0",
     "helmet": "3.21.1",
     "mongoose": "5.7.1",

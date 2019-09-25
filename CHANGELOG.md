@@ -1,3 +1,10 @@
+## [3.0.70](https://github.com/growlerapp/api/compare/v3.0.69...v3.0.70) (2019-09-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency graphql to v14.5.8 ([6bf6a63](https://github.com/growlerapp/api/commit/6bf6a63))
+
 ## [3.0.69](https://github.com/growlerapp/api/compare/v3.0.68...v3.0.69) (2019-09-24)
 
 

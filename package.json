@@ -88,7 +88,7 @@
     "prettier-standard": "14.1.1",
     "semantic-release": "15.13.24",
     "supertest": "4.0.2",
-    "typescript": "3.6.3"
+    "typescript": "3.6.4"
   },
   "eslintConfig": {
     "extends": "@eclass"

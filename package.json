@@ -38,7 +38,7 @@
     "apollo-server-express": "2.9.6",
     "body-parser": "1.19.0",
     "cors": "2.8.5",
-    "dotenv": "8.1.0",
+    "dotenv": "8.2.0",
     "express": "4.17.1",
     "graphql": "14.5.8",
     "graphql-geojson": "1.0.0",

@@ -1,3 +1,10 @@
+## [3.0.78](https://github.com/growlerapp/api/compare/v3.0.77...v3.0.78) (2019-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dotenv to v8.2.0 ([bf36fb4](https://github.com/growlerapp/api/commit/bf36fb4))
+
 ## [3.0.77](https://github.com/growlerapp/api/compare/v3.0.76...v3.0.77) (2019-10-15)
 
 

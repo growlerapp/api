@@ -1,3 +1,10 @@
+## [3.0.86](https://github.com/growlerapp/api/compare/v3.0.85...v3.0.86) (2019-11-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mongoose to v5.7.9 ([f1c9b92](https://github.com/growlerapp/api/commit/f1c9b9242e68290d59849bcf0d13abda19b0a1b9))
+
 ## [3.0.85](https://github.com/growlerapp/api/compare/v3.0.84...v3.0.85) (2019-11-08)
 
 

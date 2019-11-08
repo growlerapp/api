@@ -115,9 +115,28 @@
     ]
   },
   "renovate": {
-    "automerge": "minor",
     "extends": [
       "config:js-app"
+    ],
+    "minor": {
+      "automerge": true
+    },
+    "major": {
+      "automerge": false
+    },
+    "assignees": [
+      "lgatica"
+    ],
+    "reviewers": [
+      "lgaticaq"
+    ],
+    "packageRules": [
+      {
+        "packageNames": [
+          "typescript"
+        ],
+        "allowedVersions": "<3.7"
+      }
     ]
   },
   "mocha": {

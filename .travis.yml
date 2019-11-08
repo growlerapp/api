@@ -3,26 +3,27 @@ cache:
   directories:
     - ~/.npm
     - .nyc_output
-node_js: "12.3.1"
+node_js:
+  - 12.13.0
 notifications:
   email: false
 stages:
-  - lint
   - test
   - deploy
 jobs:
   include:
-    - stage: lint
+    - stage: test
       name: eslint
       script: npx eslint .
-    - stage: lint
+    - stage: test
       name: commitlint
       before_script: npm i -g @commitlint/travis-cli
       script: commitlint-travis
-    - stage: lint
+    - stage: test
       name: tsc-compile-check
       script: npx tsc -p tsconfig.json --noEmit
     - stage: test
+      name: test
       services:
         - mongodb
         - docker

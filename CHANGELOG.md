@@ -1,3 +1,10 @@
+## [3.0.85](https://github.com/growlerapp/api/compare/v3.0.84...v3.0.85) (2019-11-08)
+
+
+### Bug Fixes
+
+* **server:** enable introspection ([bd0e103](https://github.com/growlerapp/api/commit/bd0e10372906282a54ecebbfb42d6da06d8c81db))
+
 ## [3.0.84](https://github.com/growlerapp/api/compare/v3.0.83...v3.0.84) (2019-11-05)
 
 

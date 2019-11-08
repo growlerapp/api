@@ -25,6 +25,7 @@ Sentry.init({
   serverName: process.env.SENTRY_NAME,
   environment: process.env.SENTRY_ENVIRONMENT || config.env
 })
+app.set('Sentry', Sentry)
 
 // Mejorar seguridad
 app.use(helmet())

@@ -67,7 +67,7 @@
     "@types/helmet": "0.0.45",
     "@types/mongoose": "5.5.30",
     "@types/morgan": "1.7.37",
-    "@types/node": "12.12.6",
+    "@types/node": "12.12.7",
     "chai": "4.2.0",
     "eslint": "6.6.0",
     "eslint-plugin-array-func": "3.1.3",

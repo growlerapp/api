@@ -1,3 +1,10 @@
+## [3.0.89](https://github.com/growlerapp/api/compare/v3.0.88...v3.0.89) (2019-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency apollo-server-express to v2.9.8 ([aa7f857](https://github.com/growlerapp/api/commit/aa7f857e4c116e4170b001d36e4f02eff13b273b))
+
 ## [3.0.88](https://github.com/growlerapp/api/compare/v3.0.87...v3.0.88) (2019-11-11)
 
 

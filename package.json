@@ -65,7 +65,7 @@
     "@types/google__maps": "0.5.8",
     "@types/graphql": "14.2.3",
     "@types/helmet": "0.0.45",
-    "@types/mongoose": "5.5.31",
+    "@types/mongoose": "5.5.32",
     "@types/morgan": "1.7.37",
     "@types/node": "12.12.7",
     "chai": "4.2.0",

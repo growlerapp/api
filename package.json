@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/growlerapp/api#readme",
   "dependencies": {
-    "@godaddy/terminus": "4.2.1",
+    "@godaddy/terminus": "4.3.0",
     "@google/maps": "0.5.5",
     "@sentry/node": "5.9.0",
     "apollo-server-express": "2.9.12",

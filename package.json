@@ -57,7 +57,7 @@
     "@semantic-release/git": "7.0.18",
     "@semantic-release/github": "5.5.5",
     "@semantic-release/npm": "5.3.4",
-    "@semantic-release/release-notes-generator": "7.3.4",
+    "@semantic-release/release-notes-generator": "7.3.5",
     "@types/body-parser": "1.17.1",
     "@types/cors": "2.8.6",
     "@types/dotenv": "6.1.1",

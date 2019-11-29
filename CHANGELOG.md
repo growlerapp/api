@@ -1,3 +1,10 @@
+## [3.0.96](https://github.com/growlerapp/api/compare/v3.0.95...v3.0.96) (2019-11-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mongoose to v5.7.13 ([0a0bcb2](https://github.com/growlerapp/api/commit/0a0bcb26d1907b0c5edd03c4e066198fb581ccd8))
+
 ## [3.0.95](https://github.com/growlerapp/api/compare/v3.0.94...v3.0.95) (2019-11-27)
 
 

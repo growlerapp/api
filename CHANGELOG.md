@@ -1,3 +1,10 @@
+## [3.0.97](https://github.com/growlerapp/api/compare/v3.0.96...v3.0.97) (2019-12-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @godaddy/terminus to v4.3.1 ([beda7ba](https://github.com/growlerapp/api/commit/beda7ba48c0243d22f486d8071dfb963757fb5df))
+
 ## [3.0.96](https://github.com/growlerapp/api/compare/v3.0.95...v3.0.96) (2019-11-29)
 
 

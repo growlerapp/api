@@ -43,7 +43,7 @@
     "graphql": "14.5.8",
     "graphql-geojson": "1.0.0",
     "helmet": "3.21.2",
-    "mongoose": "5.8.2",
+    "mongoose": "5.8.3",
     "morgan": "1.9.1",
     "uuid": "3.3.3"
   },
@@ -65,7 +65,7 @@
     "@types/google__maps": "0.5.8",
     "@types/graphql": "14.2.3",
     "@types/helmet": "0.0.45",
-    "@types/mongoose": "5.5.34",
+    "@types/mongoose": "5.5.35",
     "@types/morgan": "1.7.37",
     "@types/node": "12.12.22",
     "chai": "4.2.0",

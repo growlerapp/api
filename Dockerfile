@@ -1,4 +1,4 @@
-FROM node:12.13.1-alpine as builder
+FROM node:12.14.0-alpine as builder
 
 # ARGS for node
 ARG NODE_ENV=production
@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.* /usr/src/app/
 RUN npm i
 
-FROM node:12.13.1-alpine
+FROM node:12.14.0-alpine
 
 LABEL maintainer "Leonardo Gatica <lgatica@protonmail.com>"
 

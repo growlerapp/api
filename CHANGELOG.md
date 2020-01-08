@@ -1,3 +1,10 @@
+## [3.0.111](https://github.com/growlerapp/api/compare/v3.0.110...v3.0.111) (2020-01-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @sentry/node to v5.11.0 ([b78ffe2](https://github.com/growlerapp/api/commit/b78ffe28a77626bd19e51ab799cc37b1f6714571))
+
 ## [3.0.110](https://github.com/growlerapp/api/compare/v3.0.109...v3.0.110) (2020-01-06)
 
 

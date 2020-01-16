@@ -1,3 +1,10 @@
+## [3.0.116](https://github.com/growlerapp/api/compare/v3.0.115...v3.0.116) (2020-01-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency uuid to v3.4.0 ([145a406](https://github.com/growlerapp/api/commit/145a406f90e97d3fadf7562595443046b6ec334a))
+
 ## [3.0.115](https://github.com/growlerapp/api/compare/v3.0.114...v3.0.115) (2020-01-15)
 
 

@@ -42,7 +42,7 @@
     "express": "4.17.1",
     "graphql": "14.6.0",
     "graphql-geojson": "1.0.0",
-    "helmet": "3.21.2",
+    "helmet": "3.21.3",
     "mongoose": "5.9.2",
     "morgan": "1.9.1",
     "uuid": "3.4.0"

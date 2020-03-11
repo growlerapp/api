@@ -34,7 +34,7 @@
   "dependencies": {
     "@godaddy/terminus": "4.3.1",
     "@google/maps": "0.5.5",
-    "@sentry/node": "5.13.2",
+    "@sentry/node": "5.14.0",
     "apollo-server-express": "2.11.0",
     "body-parser": "1.19.0",
     "cors": "2.8.5",

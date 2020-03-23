@@ -43,7 +43,7 @@
     "graphql": "14.6.0",
     "graphql-geojson": "1.0.0",
     "helmet": "3.21.3",
-    "mongoose": "5.9.5",
+    "mongoose": "5.9.6",
     "morgan": "1.10.0",
     "uuid": "3.4.0"
   },

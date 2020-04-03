@@ -83,7 +83,7 @@
     "lint-staged": "9.5.0",
     "mocha": "7.1.1",
     "nodemon": "2.0.2",
-    "nyc": "15.0.0",
+    "nyc": "15.0.1",
     "nyc-config-common": "1.0.1",
     "prettier-standard": "16.2.1",
     "semantic-release": "15.14.0",

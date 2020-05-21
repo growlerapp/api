@@ -14,7 +14,7 @@
     "ts-compile-check": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
-    "node": "12.16.1"
+    "node": "12.16.3"
   },
   "private": true,
   "repository": {
@@ -67,7 +67,7 @@
     "@types/helmet": "0.0.45",
     "@types/mongoose": "5.7.20",
     "@types/morgan": "1.9.0",
-    "@types/node": "12.12.28",
+    "@types/node": "12.12.42",
     "chai": "4.2.0",
     "eslint": "6.8.0",
     "eslint-plugin-array-func": "3.1.5",

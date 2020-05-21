@@ -1,3 +1,38 @@
+## [3.0.134](https://github.com/growlerapp/api/compare/v3.0.133...v3.0.134) (2020-05-21)
+
+
+### Bug Fixes
+
+* **deps:** update all dependencies ([14573aa](https://github.com/growlerapp/api/commit/14573aa176b4f645734c6d968262e672b1756ca6))
+* **deps:** update dependency @godaddy/terminus to v4.4.1 ([97ebfe5](https://github.com/growlerapp/api/commit/97ebfe5ccf2228ab1ab8e589e3d09c3ab6ca2b42))
+* **deps:** update dependency @google/maps to v1 ([f7e5870](https://github.com/growlerapp/api/commit/f7e58709c051f641e94612d7ea345798938b6f25))
+* **deps:** update dependency @sentry/node to v5.13.1 ([912286b](https://github.com/growlerapp/api/commit/912286b33b88e5204a3109d1f178b5bff84d40c2))
+* **deps:** update dependency @sentry/node to v5.13.2 ([434207c](https://github.com/growlerapp/api/commit/434207c85c910453564273944093d8871bfc6a47))
+* **deps:** update dependency @sentry/node to v5.14.0 ([cf52411](https://github.com/growlerapp/api/commit/cf52411f040a45f41768eb7b96b33eb4d497d158))
+* **deps:** update dependency @sentry/node to v5.14.1 ([6850844](https://github.com/growlerapp/api/commit/68508440d9f0bc48a6c5b381fda91b90831869eb))
+* **deps:** update dependency @sentry/node to v5.14.2 ([0bf94e3](https://github.com/growlerapp/api/commit/0bf94e3a7ef737f96cc6cbb709eade34b52e28d5))
+* **deps:** update dependency @sentry/node to v5.15.0 ([13b0ed6](https://github.com/growlerapp/api/commit/13b0ed61d5b2ef39e4a9042132b0cdd90413fc05))
+* **deps:** update dependency @sentry/node to v5.15.1 ([3ba1527](https://github.com/growlerapp/api/commit/3ba15273083a52de9f47ca0f0adf3a4600e5ba5b))
+* **deps:** update dependency @sentry/node to v5.15.2 ([33ee312](https://github.com/growlerapp/api/commit/33ee312f0c20cf0511405c27a19a328cac5be356))
+* **deps:** update dependency @sentry/node to v5.15.3 ([324b73b](https://github.com/growlerapp/api/commit/324b73b04fc78545ea7223c50b1ce047afacf7af))
+* **deps:** update dependency @sentry/node to v5.15.4 ([7efc9f3](https://github.com/growlerapp/api/commit/7efc9f34a8e46397e4dd0cf4408721e69d481aad))
+* **deps:** update dependency @sentry/node to v5.15.5 ([#550](https://github.com/growlerapp/api/issues/550)) ([5198023](https://github.com/growlerapp/api/commit/5198023874030152957bf44f3eb1c2340cba598a))
+* **deps:** update dependency apollo-server-express to v2.11.0 ([922b2d8](https://github.com/growlerapp/api/commit/922b2d87ca5a9c5ada8c80040cfc2d934eaa303e))
+* **deps:** update dependency apollo-server-express to v2.12.0 ([cd3ef30](https://github.com/growlerapp/api/commit/cd3ef3075fa507629e1e2a976a968be70e0dfcf8))
+* **deps:** update dependency apollo-server-express to v2.13.1 ([#556](https://github.com/growlerapp/api/issues/556)) ([7964dc3](https://github.com/growlerapp/api/commit/7964dc328f32514ab777ddcf5d2721c00f5c1a44))
+* **deps:** update dependency graphql to v15 ([8b0264d](https://github.com/growlerapp/api/commit/8b0264dfc05e642ba35e3af14987004135e3051f))
+* **deps:** update dependency helmet to v3.21.3 ([0d11e2d](https://github.com/growlerapp/api/commit/0d11e2d6fb4f22d55b80b253c04cf27c464f2993))
+* **deps:** update dependency helmet to v3.22.0 ([15d0dea](https://github.com/growlerapp/api/commit/15d0dea3ada4f854f0c176763a57b6c0aeecd2b4))
+* **deps:** update dependency mongoose to v5.9.14 ([c8aa66b](https://github.com/growlerapp/api/commit/c8aa66b9f0480672dd642e4df862feb5e36afc68))
+* **deps:** update dependency mongoose to v5.9.15 ([#561](https://github.com/growlerapp/api/issues/561)) ([23bc6a5](https://github.com/growlerapp/api/commit/23bc6a556ec16482a3b7d28c1d46a8a861b95fe7))
+* **deps:** update dependency mongoose to v5.9.3 ([f93b99f](https://github.com/growlerapp/api/commit/f93b99fd16d186ea344e0a0a2e763705db91fac6))
+* **deps:** update dependency mongoose to v5.9.4 ([e34ea2f](https://github.com/growlerapp/api/commit/e34ea2fcc1a88afdac8209dd6fd0c2a6a3e3950f))
+* **deps:** update dependency mongoose to v5.9.5 ([1e945df](https://github.com/growlerapp/api/commit/1e945dfc0d0bdad25a2849fe18a2e01ee3e17a18))
+* **deps:** update dependency mongoose to v5.9.6 ([8254d6c](https://github.com/growlerapp/api/commit/8254d6cc3282d6d4c20b0ee95e52a97365cc9ae1))
+* **deps:** update dependency mongoose to v5.9.7 ([8653162](https://github.com/growlerapp/api/commit/865316253ec4ec9bbc659d9c6eb7f69d32d594a9))
+* **deps:** update dependency morgan to v1.10.0 ([69c5589](https://github.com/growlerapp/api/commit/69c5589e60972d9f6686cf4d930e9f3f0cbd4d3c))
+* **deps:** update dependency uuid to v8 ([9bc3d6f](https://github.com/growlerapp/api/commit/9bc3d6f483cc4654812214b4085477367af82206))
+
 ## [3.0.133](https://github.com/growlerapp/api/compare/v3.0.132...v3.0.133) (2020-02-21)
 
 

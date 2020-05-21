@@ -8,7 +8,6 @@ const mongoose = require('mongoose')
 const Sentry = require('@sentry/node')
 const helmet = require('helmet')
 const config = require('./config')
-// @ts-ignore
 const pkg = require('../package.json')
 
 const router = require('./router')

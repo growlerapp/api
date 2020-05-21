@@ -4,7 +4,6 @@
 
 const mongoose = require('mongoose')
 const { db } = require('./config')
-// @ts-ignore
 const data = require('../db.json')
 const Growler = require('./api/core/model')
 

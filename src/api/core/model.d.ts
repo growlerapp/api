@@ -1,4 +1,4 @@
-import { Document, Model } from 'mongoose'
+import { Document, Model, FilterQuery } from 'mongoose'
 
 export interface Growler extends Document {
   name: String,
@@ -17,6 +17,8 @@ export interface Growler extends Document {
 interface StaticMethods {
   findByProximity(lat: number, lon: number): Promise<Growler[]>
 }
+
+export type GrowlerQuery = FilterQuery<Growler>
 
 let growler: Model<Growler> & StaticMethods;
 export = growler;

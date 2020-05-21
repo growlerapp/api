@@ -1,22 +1,51 @@
 'use strict'
 
+const axios = require('axios').default
 const querystring = require('querystring')
-const { createClient } = require('@google/maps')
+const {
+  Client,
+  PlaceInputType,
+  Language,
+  UnitSystem
+} = require('@googlemaps/google-maps-services-js')
 const config = require('./config')
 
-/** @typedef {import('@google/maps').GoogleMapsClient} GoogleMapsClient */
 /**
- * @returns {GoogleMapsClient} - A GoogleMapsClient.
- * @example
- * const googleMapsClient = getClient()
+ * @typedef {import('@googlemaps/google-maps-services-js').Client} Client
+ * @typedef {import('@googlemaps/google-maps-services-js').GeocodeRequest} GeocodeRequest
+ * @typedef {import('@googlemaps/google-maps-services-js').PlaceDetailsResponse} PlaceDetailsResponse
+ * @typedef {import('@googlemaps/google-maps-services-js').LatLng} LatLng
+ * @typedef {import('@googlemaps/google-maps-services-js').TravelMode} TravelMode
+ * @typedef {import('@googlemaps/google-maps-services-js').UnitSystem} UnitSystem
+ * @typedef {import('@googlemaps/google-maps-services-js').DistanceMatrixResponse} DistanceMatrixResponse
+ * @typedef {import('@googlemaps/google-maps-services-js').Language} Language
+ * @typedef {import('./api/core/schema/type').MatrixType} MatrixType
+ * @typedef {import('./api/core/schema/type').PeriodType} PeriodType
+ * @typedef {import('@googlemaps/google-maps-services-js').PlacePhoto} PlacePhoto
+ * @typedef {import('./api/core/schema/type').PlaceType} PlaceType
  */
-const getClient = () => createClient({ key: config.google.apiKey, Promise })
-
 /**
  * @typedef {Object} GeoJSONPoint
  * @property {string} type
  * @property {Array<number>} coordinates
  */
+/**
+ * @typedef {Object} MatrixOptions
+ * @property {LatLng} origin
+ * @property {LatLng} destination
+ * @property {TravelMode} mode
+ */
+
+/**
+ * @returns {Client} - A GoogleMapsClient.
+ * @example
+ * const googleMapsClient = getClient()
+ */
+const getClient = () => {
+  const axiosInstance = axios.create()
+  return new Client({ axiosInstance })
+}
+
 /**
  * Get GeoJSON Point from address string.
  *
@@ -27,9 +56,11 @@ const getClient = () => createClient({ key: config.google.apiKey, Promise })
  */
 exports.geocoding = async address => {
   const googleMapsClient = getClient()
-  const response = await googleMapsClient.geocode({ address }).asPromise()
-  if (response.json.results.length < 1) return null
-  const { lat, lng } = response.json.results[0].geometry.location
+  const response = await googleMapsClient.geocode({
+    params: { address, key: config.google.apiKey }
+  })
+  if (response.data.results.length < 1) return null
+  const { lat, lng } = response.data.results[0].geometry.location
   return {
     type: 'Point',
     coordinates: [lng, lat]
@@ -37,57 +68,38 @@ exports.geocoding = async address => {
 }
 
 /**
- * @typedef {import('@google/maps').LatLng} LatLng
- * @typedef {import('@google/maps').TravelMode} TravelMode
- * @typedef {import('@google/maps').UnitSystem} UnitSystem
- * @typedef {import('@google/maps').DistanceMatrixResponse} DistanceMatrixResponse
- * @typedef {import('@google/maps').Language} Language
- * @typedef {import('@google/maps').ClientResponse<DistanceMatrixResponse>} ClientResponseDistanceMatrixResponse
- */
-/**
- * @typedef {Object} MatrixOptions
- * @property {LatLng} origin
- * @property {LatLng} destination
- * @property {TravelMode} mode
- */
-/**
  * @param {MatrixOptions} options - Options to set origin, destination and mode.
- * @returns {Promise<ClientResponseDistanceMatrixResponse>} - A DistanceMatrixResponse.
+ * @returns {Promise<DistanceMatrixResponse>} - A DistanceMatrixResponse.
  * @example
  * const matrixResults = await matrix({ origin, destination, mode })
  */
 exports.matrix = async options => {
   const googleMapsClient = getClient()
-  const response = await googleMapsClient
-    .distanceMatrix({
+  const response = await googleMapsClient.distancematrix({
+    params: {
       origins: [options.origin],
       destinations: [options.destination],
       mode: options.mode,
-      language: 'es',
-      units: 'metric',
-      // @ts-ignore
-      departure_time: 'now'
-    })
-    .asPromise()
+      language: Language.es,
+      units: UnitSystem.metric,
+      departure_time: new Date(),
+      key: config.google.apiKey
+    }
+  })
   if (response.status !== 200) return null
   return response
 }
 
 /**
- * @typedef {import('./api/core/schema/type').MatrixType} MatrixType
- */
-/**
- * @param {ClientResponseDistanceMatrixResponse} results - A DistanceMatrixResponse.
+ * @param {DistanceMatrixResponse} results - A DistanceMatrixResponse.
  * @returns {MatrixType} - A DistanceMatrixResponse parsed.
  * @example
  * const parsed = parseMatrixResults(matrixResults)
  */
 exports.parseMatrixResults = results => {
   try {
-    const element = results.json.rows[0].elements[0]
+    const element = results.data.rows[0].elements[0]
     return {
-      // @ts-ignore
-      mode: results.query.mode,
       distance: element.distance.text,
       duration: element.duration.text
     }
@@ -97,20 +109,17 @@ exports.parseMatrixResults = results => {
 }
 
 /**
- * @typedef {import('@google/maps').PlaceDetailsResponse} PlaceDetailsResponse
- */
-/**
  * @param {string} placeid - A Place ID.
  * @param {Language} [language='es'] - A Language code.
  * @returns {Promise<PlaceDetailsResponse>} - A PlaceDetailsResponse.
  * @example
  * const place = await getPlace(placeId)
  */
-const getPlace = async (placeid, language = 'es') => {
+const getPlace = async (placeid, language = Language.es) => {
   const googleMapsClient = getClient()
-  const response = await googleMapsClient
-    .place({
-      placeid,
+  return await googleMapsClient.placeDetails({
+    params: {
+      place_id: placeid,
       language: language,
       fields: [
         'permanently_closed',
@@ -125,10 +134,10 @@ const getPlace = async (placeid, language = 'es') => {
         'price_level',
         'rating',
         'review'
-      ]
-    })
-    .asPromise()
-  return response.json
+      ],
+      key: config.google.apiKey
+    }
+  })
 }
 
 /**
@@ -140,24 +149,22 @@ const getPlace = async (placeid, language = 'es') => {
  * @example
  * const place = await findPlace(name, lat, lng)
  */
-exports.findPlace = async (name, lat, lng, language = 'es') => {
+exports.findPlace = async (name, lat, lng, language = Language.es) => {
   const googleMapsClient = getClient()
-  const response = await googleMapsClient
-    .findPlace({
+  const response = await googleMapsClient.findPlaceFromText({
+    params: {
       input: name,
-      inputtype: 'textquery',
+      inputtype: PlaceInputType.textQuery,
       language: language,
       fields: ['place_id'],
-      locationbias: `point:${lat},${lng}`
-    })
-    .asPromise()
-  if (response.json.candidates.length === 0) return null
-  return getPlace(response.json.candidates[0].place_id)
+      locationbias: `point:${lat},${lng}`,
+      key: config.google.apiKey
+    }
+  })
+  if (response.data.candidates.length === 0) return null
+  return getPlace(response.data.candidates[0].place_id)
 }
 
-/**
- * @typedef {import('./api/core/schema/type').PeriodType} PeriodType
- */
 /**
  * @param {string} weekDay - A Place name.
  * @returns {PeriodType} - A Period.
@@ -177,9 +184,6 @@ const parseWeekDay = weekDay => {
 }
 
 /**
- * @typedef {import('@google/maps').PlacePhoto} PlacePhoto
- */
-/**
  * @param {PlacePhoto} photo - A Place photo.
  * @returns {string} - A image url.
  * @example
@@ -195,9 +199,6 @@ exports.parsePhoto = photo => {
 }
 
 /**
- * @typedef {import('./api/core/schema/type').PlaceType} PlaceType
- */
-/**
  * @param {PlaceDetailsResponse} place - A Place photo.
  * @returns {PlaceType} - A Place.
  * @example
@@ -205,21 +206,20 @@ exports.parsePhoto = photo => {
  */
 exports.parsePlace = place => {
   let schedule = null
-  if (place.result.opening_hours) {
+  if (place.data.result.opening_hours) {
     schedule = {
-      openNow: place.result.opening_hours.open_now,
-      // @ts-ignore
-      schedules: place.result.opening_hours.weekday_text.map(parseWeekDay)
+      openNow: place.data.result.opening_hours.open_now,
+      schedules: place.data.result.opening_hours.weekday_text.map(parseWeekDay)
     }
   }
   return {
-    phone: place.result.formatted_phone_number,
+    phone: place.data.result.formatted_phone_number,
     schedule,
     photo:
-      place.result.photos && place.result.photos.length > 0
-        ? place.result.photos[0]
+      place.data.result.photos && place.data.result.photos.length > 0
+        ? place.data.result.photos[0]
         : null,
-    rating: place.result.rating,
-    website: place.result.website
+    rating: place.data.result.rating,
+    website: place.data.result.website
   }
 }

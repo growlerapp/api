@@ -68,7 +68,7 @@ const OpeningHours = new GraphQLObjectType({
 })
 
 /**
- * @typedef {import('@google/maps').PlacePhoto} PlacePhoto
+ * @typedef {import('@googlemaps/google-maps-services-js').PlacePhoto} PlacePhoto
  */
 /**
  * @typedef {Object} PlaceType

@@ -1,5 +1,6 @@
 'use strict'
 
+const { TravelMode } = require('@googlemaps/google-maps-services-js')
 const Growler = require('../model')
 const {
   matrix,
@@ -16,6 +17,27 @@ const {
  * @property {number} limit
  */
 /**
+ * @typedef {Object} FindByProximityArgs
+ * @property {number} latitude
+ * @property {number} longitude
+ */
+/**
+ * @typedef {Object} FindOneArgs
+ * @property {string} _id
+ */
+/**
+ * @typedef {Object} MatrixArgs
+ * @property {number} latitude
+ * @property {number} longitude
+ */
+/**
+ * @typedef {import('./type').GrowlerType} GrowlerType
+ * @typedef {import('./type').PlaceType} PlaceType
+ * @typedef {import('../../../schema/core').Args<import('./type').UploadBarInput>} UploadBarInputArgs
+ * @typedef {import('../model').GrowlerQuery} GrowlerQuery
+ */
+
+/**
  * @param {*} root -
  * @param {FindAllArgs} args -
  * @returns {Promise<Array<*>>} -
@@ -24,13 +46,17 @@ const {
  */
 exports.findAll = async (root, args) => {
   const fields = { _id: 1, name: 1, address: 1, geometry: 1 }
+  /** @type {GrowlerQuery} */
   const query = {}
   if (args.name) {
+    // @ts-ignore
     query.name = { $regex: `.*${args.name}.*`, $options: 'i' }
   }
   if (args.address) {
+    // @ts-ignore
     query.address = { $regex: `.*${args.address}.*`, $options: 'i' }
   }
+  query.address = 'a'
   let docs
   if (args.limit > 0 && args.limit < 26) {
     docs = await Growler.find(query)
@@ -46,11 +72,6 @@ exports.findAll = async (root, args) => {
 }
 
 /**
- * @typedef {Object} FindByProximityArgs
- * @property {number} latitude
- * @property {number} longitude
- */
-/**
  * @param {*} root -
  * @param {FindByProximityArgs} args -
  * @returns {Promise<Array<*>>} -
@@ -61,10 +82,6 @@ exports.findByProximity = (root, args) => {
   return Growler.findByProximity(args.latitude, args.longitude)
 }
 
-/**
- * @typedef {Object} FindOneArgs
- * @property {string} _id
- */
 /**
  * @param {*} root -
  * @param {*} args -
@@ -81,14 +98,6 @@ exports.findOne = (root, args) => {
 }
 
 /**
- * @typedef {Object} MatrixArgs
- * @property {number} latitude
- * @property {number} longitude
- */
-/**
- * @typedef {import('./type').GrowlerType} GrowlerType
- */
-/**
  * @param {GrowlerType} parent -
  * @param {MatrixArgs} args -
  * @returns {Promise<Array<*>>} -
@@ -97,11 +106,7 @@ exports.findOne = (root, args) => {
  */
 exports.matrix = async (parent, args) => {
   const results = []
-  /**
-   * @typedef {import('@google/maps').TravelMode} TravelMode
-   * @type {Array<TravelMode>}
-   **/
-  const modes = ['driving', 'walking', 'transit']
+  const modes = [TravelMode.driving, TravelMode.walking, TravelMode.transit]
   for (const mode of modes) {
     const matrixResults = await matrix({
       origin: { lat: args.latitude, lng: args.longitude },
@@ -117,9 +122,6 @@ exports.matrix = async (parent, args) => {
   return results
 }
 
-/**
- * @typedef {import('./type').PlaceType} PlaceType
- */
 /**
  * @param {GrowlerType} parent -
  * @returns {Promise<PlaceType>} -
@@ -146,9 +148,6 @@ exports.photo = parent => {
   return parsePhoto(parent.photo)
 }
 
-/**
- * @typedef {import('../../../schema/core').Args<import('./type').UploadBarInput>} UploadBarInputArgs
- */
 /**
  * @param {*} root -
  * @param {UploadBarInputArgs} args -

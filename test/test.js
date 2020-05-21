@@ -6,7 +6,6 @@ const request = require('supertest')
 const app = require('../src/app')
 const { port } = require('../src/config')
 const Growler = require('../src/api/core/model')
-// @ts-ignore
 const data = require('../db.json')
 
 describe('api', function () {
@@ -36,7 +35,6 @@ describe('api', function () {
   })
 
   describe('query findAll', () => {
-    // @ts-ignore
     // eslint-disable-next-line require-jsdoc
     const checkDoc = doc => {
       expect(doc.name).to.be.a('string')

@@ -82,7 +82,7 @@
     "husky": "4.2.5",
     "lint-staged": "10.2.4",
     "mocha": "7.1.1",
-    "nodemon": "2.0.2",
+    "nodemon": "2.0.4",
     "nyc": "15.0.1",
     "nyc-config-common": "1.0.1",
     "prettier-standard": "16.2.1",

@@ -12,7 +12,7 @@ const pkg = require('../package.json')
 
 const router = require('./router')
 
-mongoose.connect(config.db, { useNewUrlParser: true })
+mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 mongoose.set('useCreateIndex', true)
 

@@ -164,7 +164,10 @@ exports.findPlace = async (name, lat, lng, language = Language.es) => {
       key: config.google.apiKey
     }
   })
-  if (response.data.candidates.length === 0 || response.data.status !== Status.OK) {
+  if (
+    response.data.candidates.length === 0 ||
+    response.data.status !== Status.OK
+  ) {
     return null
   }
   return getPlace(response.data.candidates[0].place_id)

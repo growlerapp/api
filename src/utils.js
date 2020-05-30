@@ -6,6 +6,7 @@ const {
   Client,
   PlaceInputType,
   Language,
+  Status,
   UnitSystem
 } = require('@googlemaps/google-maps-services-js')
 const config = require('./config')
@@ -82,11 +83,13 @@ exports.matrix = async options => {
       mode: options.mode,
       language: Language.es,
       units: UnitSystem.metric,
-      departure_time: new Date(),
+      // departure_time: 'now',
       key: config.google.apiKey
     }
   })
-  if (response.status !== 200) return null
+  if (response.status !== 200 || response.data.status !== Status.OK) {
+    return null
+  }
   return response
 }
 
@@ -161,7 +164,9 @@ exports.findPlace = async (name, lat, lng, language = Language.es) => {
       key: config.google.apiKey
     }
   })
-  if (response.data.candidates.length === 0) return null
+  if (response.data.candidates.length === 0 || response.data.status !== Status.OK) {
+    return null
+  }
   return getPlace(response.data.candidates[0].place_id)
 }
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const { TravelMode } = require('@googlemaps/google-maps-services-js')
+const { TravelMode, Status } = require('@googlemaps/google-maps-services-js')
 const Growler = require('../model')
 const {
   matrix,
@@ -56,7 +56,6 @@ exports.findAll = async (root, args) => {
     // @ts-ignore
     query.address = { $regex: `.*${args.address}.*`, $options: 'i' }
   }
-  query.address = 'a'
   let docs
   if (args.limit > 0 && args.limit < 26) {
     docs = await Growler.find(query)
@@ -116,8 +115,10 @@ exports.matrix = async (parent, args) => {
       },
       mode: mode
     })
-    const parsed = parseMatrixResults(matrixResults)
-    if (parsed) results.push(parsed)
+    if (matrixResults) {
+      const parsed = parseMatrixResults(matrixResults)
+      if (parsed) results.push(parsed)
+    }
   }
   return results
 }
@@ -134,6 +135,7 @@ exports.place = async parent => {
     parent.geometry.coordinates[1],
     parent.geometry.coordinates[0]
   )
+  if (!place || place.data.status !== Status.OK) return null
   return parsePlace(place)
 }
 

@@ -1,3 +1,10 @@
+## [3.0.138](https://github.com/growlerapp/api/compare/v3.0.137...v3.0.138) (2020-05-30)
+
+
+### Bug Fixes
+
+* **google-api:** catch api errors ([7df981a](https://github.com/growlerapp/api/commit/7df981a0e043a38badde731a6fc670233f75dcc3))
+
 ## [3.0.137](https://github.com/growlerapp/api/compare/v3.0.136...v3.0.137) (2020-05-28)
 
 

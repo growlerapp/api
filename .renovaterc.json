@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "config:js-app"
+  ],
+  "minor": {
+    "automerge": true
+  },
+  "major": {
+    "automerge": false
+  },
+  "assignees": [
+    "lgatica"
+  ],
+  "reviewers": [
+    "lgaticaq"
+  ]
+}

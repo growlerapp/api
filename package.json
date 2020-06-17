@@ -14,7 +14,7 @@
     "ts-compile-check": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
-    "node": "12.18.0"
+    "node": "12.18.1"
   },
   "private": true,
   "repository": {

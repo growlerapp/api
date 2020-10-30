@@ -35,7 +35,7 @@
     "@godaddy/terminus": "4.4.1",
     "@googlemaps/google-maps-services-js": "2.6.1",
     "@sentry/node": "5.27.2",
-    "apollo-server-express": "2.18.2",
+    "apollo-server-express": "2.19.0",
     "axios": "0.21.0",
     "body-parser": "1.19.0",
     "cors": "2.8.5",

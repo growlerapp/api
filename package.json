@@ -49,7 +49,7 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "8.3.5",
+    "@commitlint/cli": "8.3.6",
     "@commitlint/config-conventional": "8.3.4",
     "@eclass/eslint-config": "2.0.1",
     "@semantic-release/changelog": "5.0.1",

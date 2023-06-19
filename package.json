@@ -85,7 +85,7 @@
     "nyc-config-common": "1.0.1",
     "prettier-standard": "16.4.1",
     "semantic-release": "17.3.9",
-    "supertest": "4.0.2",
+    "supertest": "6.3.3",
     "typescript": "3.9.9"
   }
 }

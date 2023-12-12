@@ -33,7 +33,7 @@
   "homepage": "https://github.com/growlerapp/api#readme",
   "dependencies": {
     "@godaddy/terminus": "4.10.2",
-    "@googlemaps/google-maps-services-js": "2.6.1",
+    "@googlemaps/google-maps-services-js": "3.3.42",
     "@sentry/node": "5.30.0",
     "apollo-server-express": "2.25.3",
     "axios": "0.21.1",

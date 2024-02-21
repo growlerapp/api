@@ -36,7 +36,7 @@
     "@googlemaps/google-maps-services-js": "2.6.1",
     "@sentry/node": "5.30.0",
     "apollo-server-express": "2.25.3",
-    "axios": "0.21.1",
+    "axios": "0.28.0",
     "body-parser": "1.19.0",
     "cors": "2.8.5",
     "dotenv": "8.6.0",
